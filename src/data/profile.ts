@@ -13,7 +13,7 @@ interface Profile {
 export const profile: Profile = {
   name: 'Rémi Tilmant',
   github: 'https://github.com/Towrowrow',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/rémi-tilmant/',
   cv: '',
   email: 'towtowrow@gmail.com',
   careerStart: null,
