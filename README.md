@@ -14,7 +14,7 @@ npm run build
 npm run preview
 ```
 
-Le build final se trouve dans `dist/`. Le serveur de développement affiche son adresse locale dans le terminal.
+Le build final se trouve dans `dist/`. Il comprend le HTML pré-rendu FR/EN, les métadonnées et les données structurées, sans serveur React en production. Le serveur de développement affiche son adresse locale dans le terminal. Voir [SEO.md](SEO.md) pour les détails SEO et la validation Search Console.
 
 ## Modifier le contenu
 
@@ -25,7 +25,7 @@ La V2 conserve l’application, les données de profil, les filtres, les projets
 `src/v2.css` définit la nouvelle direction artistique au-dessus des styles partagés : grand nom typographique, profondeur en CSS, contraste anthracite/sauge et espace violet pour les agents. Aucune dépendance supplémentaire, police distante, vidéo ni image lourde n’est ajoutée. Les animations CSS et Motion respectent les préférences de mouvement réduit. L’architecture s’explore au clic et au clavier ; les panneaux annoncent leurs changements et les boutons exposent leur état sélectionné.
 
 - `src/data/profile.ts` : identité, GitHub, email et LinkedIn. Les liens vides sont masqués. Renseigner `careerStart` au format `YYYY-MM-DD` pour calculer les années révolues automatiquement. Sans date, `initialExperience: 7` est la référence unique, à actualiser manuellement. Aucune date de carrière n’a été supposée.
-- `src/data/content.ts` : textes d’interface français et anglais. Le français est la langue initiale ; une préférence explicite est conservée localement quand le navigateur le permet.
+- `src/data/content.ts` : textes d’interface français et anglais. Le français est servi sur `/`, la version anglaise sur `/en/`, avec des liens de langue explorables.
 - `src/data/skills.ts` : les quatre domaines, descriptions et technologies des filtres.
 - `src/data/projects.ts` : liste typée des futurs projets publics. Aucun ancien dépôt privé ou archivé n’est affiché.
 - `src/styles.css` : identité graphique et responsive. Les préférences de mouvement réduit sont respectées.
