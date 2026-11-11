@@ -1,0 +1,877 @@
+/* Personal editorial section */
+.personal-section {
+  background: #dfe6da;
+  color: #263b35;
+  padding: 85px 0 95px;
+}
+.personal-section .eyebrow {
+  color: #52665b;
+}
+.personal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  align-items: start;
+  gap: 56px;
+  margin-top: 45px;
+}
+.personal-layout blockquote {
+  font:
+    42px/1.2 Georgia,
+    serif;
+  letter-spacing: -1.3px;
+  max-width: 860px;
+}
+.personal-caption {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 35px;
+  max-width: 400px;
+}
+.personal-caption strong {
+  font:
+    62px Georgia,
+    serif;
+  letter-spacing: -4px;
+  color: #557665;
+  font-weight: 400;
+}
+.personal-caption span {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #52665b;
+}
+.portrait {
+  padding-top: 16px;
+  width: 210px;
+  max-width: 210px;
+  justify-self: end;
+}
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 6px solid #f0eee6;
+  box-shadow: 6px 8px 0 #b8c9ae;
+}
+.portrait figcaption {
+  font:
+    15px Georgia,
+    serif;
+  margin-top: 18px;
+  line-height: 1.8;
+}
+.portrait figcaption > span {
+  display: block;
+  font:
+    11px Consolas,
+    monospace;
+  color: #52665b;
+}
+.personal-story {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  border-top: 1px solid #73918247;
+  margin-top: 60px;
+  padding-top: 30px;
+}
+.personal-story p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #43594e;
+}
+/* Full-stack expertise and technology filters */
+.expertise-section-new {
+  padding: 100px 0;
+  background: #141d19;
+}
+.expertise-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+.expertise-heading > div > p {
+  color: #a4baad;
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 520px;
+  margin-top: 23px;
+}
+.expertise-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 60px;
+  border-top: 1px solid var(--line);
+}
+.expertise-side {
+  padding: 35px 50px 35px 0;
+}
+.expertise-side + article {
+  border-left: 1px solid var(--line);
+  padding-left: 50px;
+  padding-right: 0;
+}
+.domain-index {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #91aa9c;
+}
+.expertise-side h3 {
+  font:
+    65px Georgia,
+    serif;
+  letter-spacing: -2px;
+  margin: 30px 0 20px;
+}
+.expertise-side h3:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 45px;
+  background: #b8c9ae;
+  margin-top: 25px;
+}
+.expertise-side p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #a4baad;
+  max-width: 510px;
+}
+.expertise-side .expertise-subtitle {
+  color: #d6e0d1;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.tech-line {
+  font:
+    12px/1.9 Consolas,
+    monospace;
+  color: #c6d6c9;
+  margin-top: 25px;
+}
+.expertise-foundation {
+  border-block: 1px solid var(--line);
+  padding: 22px 0;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+.expertise-foundation > span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #b8c9ae;
+}
+.expertise-foundation p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #a4baad;
+}
+.toolkit-new {
+  margin-top: 55px;
+}
+.toolkit-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.toolkit-title h3 {
+  font:
+    26px Georgia,
+    serif;
+  letter-spacing: -0.8px;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filters button {
+  font-size: 12px;
+  color: #a4baad;
+  padding: 10px 12px;
+  min-height: 44px;
+  border: 1px solid transparent;
+}
+.filters button[aria-pressed='true'] {
+  color: #e2ebd9;
+  border-color: #789787;
+  background: #263b35;
+}
+.technology-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  min-height: 120px;
+  align-content: start;
+}
+.technology-index > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font:
+    12px Consolas,
+    monospace;
+  color: #b3c9ba;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 22px 18px 0;
+  margin-right: 25px;
+  line-height: 1.6;
+}
+.technology-index i {
+  background: #b8c9ae;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+/* Architecture Explorer */
+.architecture-section-new {
+  padding: 90px 0;
+  background-color: #111a16;
+  background-image:
+    linear-gradient(#90aa9a09 1px, transparent 1px),
+    linear-gradient(90deg, #90aa9a09 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.architecture-explorer {
+  margin: 0;
+  background: #182722dd;
+  box-shadow: none;
+  padding: 40px;
+  border: 1px solid #5e7d6b6b;
+}
+.explorer-heading h2 {
+  font-size: 42px;
+  margin-top: 20px;
+}
+.explorer-heading > p {
+  font-size: 11px;
+  color: #a4baad;
+  max-width: 220px;
+}
+.architecture-node {
+  min-height: 180px;
+}
+.architecture-node strong {
+  font-size: 22px;
+}
+.architecture-node .node-hint {
+  font-size: 11px;
+  line-height: 1.8;
+}
+.architecture-node .node-index {
+  font-size: 11px;
+}
+.request-legend {
+  font-size: 11px;
+  margin-top: 25px;
+  color: #a4baad;
+}
+.layer-detail {
+  min-height: 190px;
+}
+.layer-detail-title code {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #a4baad;
+}
+.layer-detail-title h3 {
+  font:
+    30px Georgia,
+    serif;
+  color: #e4ebde;
+  margin: 16px 0;
+}
+.layer-detail-copy > p {
+  font-size: 14px;
+  color: #b3c9ba;
+}
+.layer-detail-copy .tags span {
+  font-size: 11px;
+  color: #d4dfce;
+}
+/* Behind the Build */
+.build-section {
+  background: #151e19;
+  padding: 100px 0;
+}
+.build-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+.build-heading > span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #91a99a;
+}
+.build-section h2 {
+  margin-top: 30px;
+  font-size: clamp(38px, 4.7vw, 68px);
+}
+.build-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin-top: 55px;
+}
+.build-manifest p {
+  font-size: 15px;
+  line-height: 1.95;
+  color: #a4baad;
+  margin-bottom: 25px;
+}
+.build-manifest a {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 13px;
+  color: #d1dfcb;
+  padding: 10px 0;
+  border-bottom: 1px solid #6b887847;
+  min-height: 44px;
+}
+.build-blueprint {
+  margin: 0 0 0 5px;
+  padding: 0 0 0 30px;
+  border-left: 1px solid #7893815c;
+  list-style: none;
+}
+.build-blueprint li {
+  position: relative;
+  padding: 0 0 30px;
+}
+.build-blueprint li:last-child {
+  padding-bottom: 0;
+}
+.build-blueprint li:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -34px;
+  width: 7px;
+  height: 7px;
+  background: #b8c9ae;
+}
+.build-blueprint span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.7px;
+  color: #99b0a0;
+  display: block;
+}
+.build-blueprint strong {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  display: block;
+  margin-top: 10px;
+}
+.build-blueprint small {
+  font-size: 12px;
+  color: #a4baad;
+  display: block;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+.build-note {
+  border-top: 1px solid var(--line);
+  margin-top: 50px;
+  padding-top: 25px;
+  display: flex;
+  align-items: start;
+  gap: 40px;
+}
+.build-note > span {
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  letter-spacing: 0.7px;
+  color: #b8c9ae;
+  flex-shrink: 0;
+}
+.build-note p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #b8cbbe;
+}
+/* Contact */
+.contact-new {
+  background: #b8c9ae;
+  color: #263b35;
+  padding: 85px 0 45px;
+}
+.contact-new .eyebrow {
+  color: #304d40;
+}
+.contact-new h2 {
+  font-size: clamp(52px, 7vw, 100px);
+  line-height: 1.02;
+  letter-spacing: -4px;
+  max-width: 1100px;
+  margin-top: 40px;
+  font-family: Georgia, serif;
+}
+.contact-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  max-width: 900px;
+  margin-top: 45px;
+}
+.contact-paths span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #304d40;
+}
+.contact-paths p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #365447;
+  margin-top: 13px;
+  max-width: 410px;
+}
+.email-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-block: 1px solid #52736366;
+  font-size: clamp(24px, 3vw, 42px);
+  letter-spacing: -1.3px;
+  padding: 30px 0;
+  margin-top: 45px;
+  min-height: 70px;
+}
+.email-link > svg {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.email-link:hover > svg {
+  transform: translate(5px, -5px);
+}
+.contact-secondary {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.contact-secondary > a {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 12px;
+  min-height: 44px;
+}
+.contact-secondary > span {
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  color: #304d40;
+  margin-left: auto;
+  max-width: 400px;
+}
+/* Integration adapters: semantic React wrappers keep the approved lab compositions. */
+.scope-decisions {
+  background: #f0eee6;
+}
+.scope-playground {
+  background: #111b18;
+}
+.scope-agents {
+  background: #211d29;
+}
+.lab-shell h2 {
+  white-space: pre-line;
+}
+.lab-shell .node-and-edge {
+  display: contents;
+}
+.lab-shell .model-node small {
+  line-height: 1.7;
+}
+.lab-shell .model-link {
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  color: #52665b;
+  max-width: 95px;
+  flex-shrink: 0;
+}
+.lab-shell .model-link.blocked {
+  color: #87574f;
+  text-decoration: line-through;
+}
+.lab-shell .model-link.queued {
+  color: #695978;
+}
+.lab-shell .human-actions > span {
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  color: #b4c7b9;
+  display: block;
+  margin-top: 16px;
+}
+.lab-shell .lab-restart {
+  color: #c3add8;
+  border-color: #9276a866;
+  padding: 10px 12px;
+  margin-top: 20px;
+  font-size: 12px;
+}
+.lab-shell .reconciliation-actions > button {
+  color: #b8c9ae;
+  padding: 12px 15px;
+  border-color: #8ba68a55;
+}
+.lab-shell .network-caption {
+  line-height: 1.8;
+}
+.lab-shell .agent-node small {
+  line-height: 1.7;
+}
+.lab-shell .agent-node {
+  min-height: 115px;
+}
+.lab-shell .orchestrator-core small {
+  font-size: 10px !important;
+  line-height: 1.6;
+}
+.lab-shell .support-node small {
+  font-size: 10px !important;
+  line-height: 1.7;
+}
+.lab-shell .agent-title > span {
+  max-width: 250px;
+}
+.lab-shell .deliverable-status strong {
+  line-height: 1.8;
+}
+.lab-shell .request-trace li {
+  padding-bottom: 25px;
+}
+.lab-shell .deliverable-body pre {
+  line-height: 1.9;
+}
+.lab-shell .document-meta {
+  line-height: 1.8;
+}
+.lab-shell .projection strong {
+  line-height: 1.8;
+}
+@media (max-width: 1050px) {
+  .personal-layout {
+    gap: 40px;
+    grid-template-columns: minmax(0, 1fr) 210px;
+  }
+  .personal-layout blockquote {
+    font-size: 35px;
+  }
+  .personal-story {
+    gap: 25px;
+  }
+  .personal-story p {
+    font-size: 13px;
+  }
+  .expertise-heading {
+    gap: 40px;
+  }
+  .expertise-side {
+    padding-right: 35px;
+  }
+  .expertise-side + article {
+    padding-left: 35px;
+  }
+  .expertise-side h3 {
+    font-size: 54px;
+  }
+  .build-layout {
+    gap: 55px;
+  }
+  .toolkit-title {
+    align-items: start;
+    flex-direction: column;
+  }
+  .architecture-explorer {
+    padding: 30px;
+  }
+  .explorer-heading h2 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 760px) {
+  .personal-section {
+    padding: 60px 0;
+  }
+  .personal-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .personal-layout blockquote {
+    font-size: 34px;
+    line-height: 1.22;
+    letter-spacing: -1px;
+  }
+  .personal-caption {
+    margin-top: 25px;
+  }
+  .personal-caption strong {
+    font-size: 55px;
+  }
+  .personal-caption span {
+    font-size: 12px;
+  }
+  .portrait {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 100%;
+    width: auto;
+    justify-self: start;
+    margin-right: 0;
+  }
+  .portrait img {
+    width: 112px;
+    flex: 0 0 112px;
+    border-width: 4px;
+    box-shadow: 4px 5px 0 #b8c9ae;
+  }
+  .portrait figcaption {
+    margin-top: 0;
+    font-size: 16px;
+  }
+  .personal-story {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+    padding-top: 25px;
+    gap: 20px;
+  }
+  .personal-story p {
+    font-size: 14px;
+  }
+  .expertise-section-new {
+    padding: 65px 0;
+  }
+  .expertise-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .expertise-heading > div > p {
+    font-size: 13px;
+  }
+  .expertise-pair {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+  .expertise-side,
+  .expertise-side + article {
+    padding: 28px 0;
+    border-left: 0;
+  }
+  .expertise-side + article {
+    border-top: 1px solid var(--line);
+  }
+  .expertise-side h3 {
+    font-size: 53px;
+    margin-top: 20px;
+  }
+  .expertise-side p {
+    font-size: 13px;
+  }
+  .expertise-side .expertise-subtitle {
+    font-size: 14px;
+  }
+  .tech-line {
+    font-size: 11px;
+  }
+  .expertise-foundation {
+    display: block;
+    padding-block: 22px;
+  }
+  .expertise-foundation p {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .toolkit-new {
+    margin-top: 40px;
+  }
+  .toolkit-title h3 {
+    font-size: 25px;
+  }
+  .filters {
+    gap: 3px;
+  }
+  .filters button {
+    font-size: 11px;
+    padding: 9px;
+  }
+  .technology-index > span {
+    font-size: 11px;
+    margin-right: 15px;
+    padding: 14px 8px 14px 0;
+  }
+  .architecture-section-new {
+    padding: 60px 0;
+  }
+  .architecture-explorer {
+    padding: 25px 18px;
+  }
+  .explorer-heading h2 {
+    font-size: 33px;
+  }
+  .explorer-heading > p {
+    font-size: 11px;
+    line-height: 1.9;
+    margin-top: 20px;
+    max-width: none;
+  }
+  .architecture-nodes {
+    gap: 14px;
+  }
+  .architecture-node {
+    min-height: 160px;
+  }
+  .architecture-node strong {
+    font-size: 18px;
+  }
+  .architecture-node .node-hint {
+    font-size: 10px;
+  }
+  .request-legend {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+  .layer-detail-title h3 {
+    font-size: 27px;
+  }
+  .layer-detail-copy > p {
+    font-size: 13px;
+  }
+  .layer-detail {
+    min-height: 310px;
+  }
+  .build-section {
+    padding: 65px 0;
+  }
+  .build-heading {
+    display: block;
+  }
+  .build-heading > span {
+    display: block;
+    margin-top: 15px;
+    font-size: 10px;
+  }
+  .build-section h2 {
+    font-size: 37px;
+  }
+  .build-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 30px;
+  }
+  .build-manifest p {
+    font-size: 14px;
+  }
+  .build-blueprint strong {
+    font-size: 23px;
+  }
+  .build-note {
+    display: block;
+    margin-top: 35px;
+  }
+  .build-note p {
+    margin-top: 15px;
+    font-size: 13px;
+  }
+  .contact-new {
+    padding: 65px 0 30px;
+  }
+  .contact-new h2 {
+    font-size: 52px;
+    letter-spacing: -2.5px;
+    margin-top: 30px;
+  }
+  .contact-paths {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 35px;
+  }
+  .contact-paths p {
+    font-size: 14px;
+  }
+  .email-link {
+    font-size: 24px;
+    letter-spacing: -0.8px;
+    padding: 25px 0;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  .email-link > svg {
+    width: 25px;
+    height: 25px;
+  }
+  .contact-secondary {
+    gap: 18px;
+  }
+  .contact-secondary > span {
+    width: 100%;
+    margin: 5px 0 0;
+    font-size: 10px;
+  }
+  .lab-shell .agent-node {
+    min-height: 110px;
+  }
+  .lab-shell .model-link {
+    max-width: none;
+  }
+  .lab-shell .agent-title > span {
+    max-width: none;
+  }
+}
+@media (max-width: 370px) {
+  .email-link {
+    font-size: 20px;
+  }
+  .personal-layout blockquote {
+    font-size: 31px;
+  }
+  .architecture-node {
+    padding-inline: 9px;
+  }
+  .architecture-node strong {
+    font-size: 16px;
+  }
+  .architecture-node .node-hint {
+    font-size: 10px;
+  }
+  .contact-new h2 {
+    font-size: 46px;
+  }
+}
+
+.lab-shell .architecture-choice button[aria-pressed='false'] span {
+  color: #52665b;
+}

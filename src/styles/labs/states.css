@@ -1,0 +1,76 @@
+/* Accessible colour refinements shared across states */
+.lab-shell .decision-masthead,
+.lab-shell .decision-deck,
+.lab-shell .experiment-strip label,
+.lab-shell .queue-choice > span,
+.lab-shell .boundary-label,
+.lab-shell .process-tag,
+.lab-shell .model-node small,
+.lab-shell .node-state,
+.lab-shell .model-node + .model-link,
+.lab-shell .storage-line,
+.lab-shell .model-verdict,
+.lab-shell .consequence-ledger span,
+.lab-shell .reasoning-note {
+  color: #52665b;
+}
+.lab-shell .model-node.waiting .node-state,
+.lab-shell .model-link.queued {
+  color: #695978 !important;
+}
+.lab-shell .model-node.failed .node-state {
+  color: #814d47;
+}
+.lab-shell .model-node strong,
+.lab-shell .consequence-ledger strong {
+  color: #263b35;
+}
+.lab-shell .chapter-side,
+.lab-shell .playground-title p,
+.lab-shell .simulation-label,
+.lab-shell .play-controls label,
+.lab-shell .protocol-heading,
+.lab-shell .protocol-heading > span:last-child,
+.lab-shell .request-trace li,
+.lab-shell .confirmed-state > span,
+.lab-shell .protocol-detail {
+  color: #a4baad;
+}
+.lab-shell .request-trace .trace-active {
+  color: #d2dfce;
+}
+.lab-shell .document-meta,
+.lab-shell .document-number,
+.lab-shell .document-context,
+.lab-shell .edit-row > span,
+.lab-shell .projection > span,
+.lab-shell .request-feedback p {
+  color: #52665b;
+}
+.lab-shell .projection strong,
+.lab-shell .edit-row button {
+  color: #36584a;
+}
+.lab-shell .document-actions button {
+  color: #f0eee6;
+  background: #36584a;
+  border-color: #36584a;
+}
+.lab-shell .agent-title > span,
+.lab-shell .agent-title p,
+.lab-shell .agent-control-strip > span,
+.lab-shell .network-caption,
+.lab-shell .agent-node small,
+.lab-shell .support-node,
+.lab-shell .support-node small,
+.lab-shell .deliverable-meta span:last-child,
+.lab-shell .deliverable-status > span {
+  color: #bca8ca;
+}
+.lab-shell .agent-node.active small {
+  color: #dbc9e7;
+}
+.lab-shell .human-actions > p,
+.lab-shell [data-human-result] {
+  color: #b4c7b9;
+}

@@ -1,4 +1,16 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
+
 import { App, ErrorBoundary } from './App';
-createRoot(document.getElementById('root')!).render(<React.StrictMode><ErrorBoundary><App/></ErrorBoundary></React.StrictMode>);
+
+const root = document.getElementById('root');
+if (!root) throw new Error('The application root is missing from the HTML template.');
+
+hydrateRoot(
+  root,
+  <React.StrictMode>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </React.StrictMode>,
+);

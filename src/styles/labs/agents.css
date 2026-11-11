@@ -1,0 +1,432 @@
+/* AI Engineering Lab */
+.lab-shell .agent-experience {
+  background: #211d29;
+  color: #e9e0f0;
+  padding: 75px 56px 55px;
+}
+.lab-shell .agent-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  align-items: start;
+}
+.lab-shell .agent-title > span {
+  font:
+    11px/2 Consolas,
+    monospace;
+  color: #a58bb8;
+  letter-spacing: 1px;
+  padding-top: 7px;
+}
+.lab-shell .agent-title > div {
+  width: 51%;
+}
+.lab-shell .agent-title h2 {
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 0.99;
+  letter-spacing: -3px;
+}
+.lab-shell .agent-title h2 em {
+  color: #c3add8;
+}
+.lab-shell .agent-title p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #a48eb4;
+  margin: 20px 0 0;
+}
+.lab-shell .agent-control-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin: 30px 0 24px;
+  border-top: 1px solid #9c7db333;
+  padding-top: 22px;
+}
+.lab-shell .agent-control-strip label {
+  font:
+    11px Consolas,
+    monospace;
+  color: #aa91bd;
+  letter-spacing: 1px;
+}
+.lab-shell .agent-control-strip select {
+  display: block;
+  margin-top: 10px;
+  background: #2c2335;
+  border-color: #8d719f66;
+  color: #d4c0e3;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0;
+  min-width: 260px;
+}
+.lab-shell .agent-control-strip > span {
+  font:
+    11px/1.9 Consolas,
+    monospace;
+  color: #a084b2;
+  text-align: right;
+}
+.lab-shell .orchestration-stage {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.lab-shell .network-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.7px;
+  color: #826b94;
+  padding: 0 0 15px;
+  min-height: 32px;
+}
+.lab-shell .network-caption span:last-child {
+  color: #b098c2;
+  letter-spacing: 0;
+}
+.lab-shell .agent-constellation {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 560/430;
+  isolation: isolate;
+}
+.lab-shell .connection-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: -1;
+}
+.lab-shell .connection {
+  fill: none;
+  stroke: #85679950;
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+  transition: stroke 0.2s;
+}
+.lab-shell .connection.is-active {
+  stroke: #d2bde2;
+  stroke-dasharray: 6 6;
+  animation: lab-signal 1.1s linear 2;
+}
+.lab-shell .agent-node {
+  position: absolute;
+  width: 31%;
+  padding: 14px 10px;
+  text-align: left;
+  color: #a18bae;
+  border: 1px solid #8d6ca03d !important;
+  background: #241e2b !important;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    background 0.25s;
+  min-height: 85px;
+}
+.lab-shell .agent-node > span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.5px;
+}
+.lab-shell .agent-node strong {
+  font-size: 15px;
+  font-weight: 400;
+}
+.lab-shell .agent-node small {
+  font-size: 11px;
+  color: #816c90;
+  line-height: 1.6;
+}
+.lab-shell .agent-node.active {
+  border-color: #c3add8 !important;
+  background: #42304e !important;
+  transform: translateY(-4px);
+  color: #f0e3f8;
+}
+.lab-shell .agent-node.active small {
+  color: #c5abd6;
+}
+.lab-shell .agent-node.explored {
+  border-color: #89709c80 !important;
+}
+.lab-shell .n-architect {
+  left: 0;
+  top: 7%;
+}
+.lab-shell .n-developer {
+  right: 0;
+  top: 7%;
+}
+.lab-shell .n-tester {
+  right: 0;
+  top: 62%;
+}
+.lab-shell .n-reviewer {
+  left: 0;
+  top: 70%;
+}
+.lab-shell .orchestrator-core {
+  position: absolute;
+  left: 35%;
+  top: 33%;
+  width: 30%;
+  aspect-ratio: 1;
+  border-radius: 50% !important;
+  border: 1px solid #ae8bc25c !important;
+  background: #32253c !important;
+  color: #c2a5d4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  transition:
+    background 0.25s,
+    transform 0.25s;
+}
+.lab-shell .orchestrator-core > span {
+  font:
+    26px Georgia,
+    serif;
+  margin-bottom: 6px;
+}
+.lab-shell .orchestrator-core strong {
+  font-size: 12px;
+  font-weight: 400;
+}
+.lab-shell .orchestrator-core small {
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 7px;
+  text-align: center;
+}
+.lab-shell .orchestrator-core[aria-pressed='true'] {
+  background: #4a3457 !important;
+  transform: scale(1.04);
+}
+.lab-shell .support-node {
+  position: absolute;
+  color: #967eaa;
+  border: 0 !important;
+  padding: 6px 0 !important;
+  font-size: 11px;
+  text-align: left;
+  min-height: 35px !important;
+}
+.lab-shell .support-node small {
+  display: block;
+  font-size: 11px;
+  margin-top: 5px;
+  color: #776186;
+  line-height: 1.7;
+}
+.lab-shell .support-node[aria-pressed='true'] {
+  color: #d7c0e6;
+}
+.lab-shell .n-debugger {
+  left: 0;
+  top: 43%;
+}
+.lab-shell .n-documentation {
+  left: 36%;
+  bottom: -5%;
+}
+.lab-shell .step-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 30px;
+}
+.lab-shell .step-navigation button {
+  padding: 9px 11px;
+  font-size: 11px;
+  color: #b59cc6;
+  border-color: #8b6ca154;
+}
+.lab-shell .deliverable-scene {
+  background: #302637;
+  padding: 22px 20px;
+  margin-top: 50px;
+  border-top: 2px solid #b08bc5;
+  min-height: 420px;
+  box-shadow: 9px 11px 0 #110e1644;
+}
+.lab-shell .deliverable-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  color: #b599c7;
+  letter-spacing: 0.7px;
+}
+.lab-shell .deliverable-meta span:last-child {
+  color: #8b719f;
+}
+.lab-shell .deliverable-scene h3 {
+  font:
+    29px/1.1 Georgia,
+    serif;
+  letter-spacing: -0.8px;
+  margin: 24px 0 17px;
+  color: #e4d4ee;
+}
+.lab-shell .deliverable-scene > p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #b5a0c2;
+}
+.lab-shell .deliverable-body {
+  margin-top: 20px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #c8b3d6;
+  animation: deliverable-in 0.25s ease-out;
+}
+.lab-shell .deliverable-body ol,
+.lab-shell .deliverable-body ul {
+  padding-left: 18px;
+  margin: 0;
+}
+.lab-shell .deliverable-body pre {
+  font-size: 11px;
+  line-height: 1.9;
+  background: #211a28;
+  padding: 13px;
+  margin: 20px 0 0;
+  color: #c4a8d6;
+}
+.lab-shell .deliverable-body button {
+  color: #d2b4e5;
+  border-color: #aa83c275;
+  padding: 9px 11px;
+  font-size: 11px;
+  margin-top: 15px;
+}
+.lab-shell .deliverable-status {
+  border-top: 1px solid #9670ae33;
+  padding-top: 18px;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lab-shell .deliverable-status > span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.7px;
+  color: #9677aa;
+}
+.lab-shell .deliverable-status strong {
+  font-size: 11px;
+  font-weight: 400;
+  color: #ccb5dc;
+  line-height: 1.7;
+}
+.lab-shell .human-validation {
+  margin-top: 38px;
+  padding-top: 25px;
+  border-top: 1px solid #a6bfb547;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 35px;
+}
+.lab-shell .human-label {
+  font:
+    11px Consolas,
+    monospace;
+  color: #a4beb3;
+  letter-spacing: 0.8px;
+}
+.lab-shell .human-validation h3 {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: #cddcd6;
+  margin-top: 17px;
+}
+.lab-shell .human-validation h3 em {
+  color: #b0c7bd;
+}
+.lab-shell .human-actions > p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #94a49d;
+}
+.lab-shell .human-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+.lab-shell .human-checks[hidden] {
+  display: none;
+}
+.lab-shell .human-checks label {
+  font-size: 11px;
+  color: #b9ccc4;
+  line-height: 1.7;
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+.lab-shell .human-checks input {
+  accent-color: #a6c0b5;
+  margin-top: 3px;
+}
+.lab-shell .human-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.lab-shell .human-buttons button {
+  color: #b2c9bf;
+  border-color: #8caea066;
+  font-size: 11px;
+  padding: 10px 12px;
+}
+.lab-shell .human-buttons button:last-child:not(:disabled) {
+  background: #b8c9ae;
+  color: #1e2b26;
+  border-color: #b8c9ae;
+}
+.lab-shell [data-human-result] {
+  display: block;
+  margin-top: 13px;
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  color: #81978e;
+}
+@keyframes lab-signal {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes deliverable-in {
+  from {
+    transform: translateY(7px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

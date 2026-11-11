@@ -1,0 +1,293 @@
+/* Engineering Decisions */
+.lab-shell .decision-experience {
+  background: var(--paper);
+  color: #263b35;
+  padding: 70px 56px 45px;
+}
+.lab-shell .decision-masthead {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #5a6e66;
+}
+.lab-shell .decision-experience h2 {
+  font-size: 70px;
+  font-weight: 400;
+  letter-spacing: -3.5px;
+  line-height: 1.02;
+  text-align: center;
+  margin-top: 45px;
+}
+.lab-shell .decision-experience h2 em {
+  color: #557665;
+}
+.lab-shell .decision-deck {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #61726b;
+  margin-top: 22px;
+}
+.lab-shell .architecture-choice {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0 32px;
+}
+.lab-shell .architecture-choice button {
+  border-color: #758e8466;
+  padding: 15px 20px;
+  color: #41584e;
+  font-size: 13px;
+  transition:
+    background 0.25s,
+    transform 0.25s;
+}
+.lab-shell .architecture-choice button > span {
+  font:
+    11px Consolas,
+    monospace;
+  margin-right: 15px;
+  color: #6e827a;
+}
+.lab-shell .architecture-choice button[aria-pressed='true'] {
+  background: #263b35;
+  color: #e4ebe8;
+  border-color: #263b35;
+  transform: translateY(-3px);
+}
+.lab-shell .architecture-choice button[aria-pressed='true'] > span {
+  color: #aac2b8;
+}
+.lab-shell .experiment-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  border-top: 1px solid #6b887c47;
+  padding-top: 22px;
+}
+.lab-shell .experiment-strip label {
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  letter-spacing: 0.4px;
+  color: #5c746a;
+}
+.lab-shell .experiment-strip select {
+  display: block;
+  margin-top: 10px;
+  min-width: 290px;
+  background: #f7f7f1;
+  color: #3c554b;
+  border-color: #a0b3ab;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0;
+}
+.lab-shell .queue-choice {
+  max-width: 230px;
+  font-family: 'Segoe UI', Arial, sans-serif !important;
+  font-size: 12px !important;
+  letter-spacing: 0 !important;
+}
+.lab-shell .queue-choice input {
+  accent-color: #435f53;
+  margin-right: 8px;
+}
+.lab-shell .queue-choice > span {
+  display: block;
+  font:
+    11px Consolas,
+    monospace;
+  margin: 8px 0 0 25px;
+  color: #758a81;
+}
+.lab-shell .system-model {
+  margin-top: 30px;
+  padding-top: 13px;
+  min-height: 300px;
+}
+.lab-shell .deployment-boundary {
+  border: 1px solid #769689;
+  padding: 25px 20px 15px;
+  position: relative;
+  transition:
+    border-color 0.3s,
+    background 0.3s;
+  background: #dfe8df6b;
+}
+.lab-shell .boundary-label {
+  position: absolute;
+  left: 20px;
+  top: -9px;
+  background: var(--paper);
+  padding: 0 10px;
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #567367;
+}
+.lab-shell .model-nodes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lab-shell .model-node {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 20px 14px 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 147px;
+  border: 1px solid transparent;
+  transition:
+    transform 0.35s,
+    background 0.3s,
+    border-color 0.3s;
+}
+.lab-shell .model-node + .model-link {
+  font:
+    11px Consolas,
+    monospace;
+  color: #5b7369;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.lab-shell .process-tag {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #657e74;
+}
+.lab-shell .model-node strong {
+  font:
+    25px Georgia,
+    serif;
+  letter-spacing: -0.8px;
+  margin-top: 20px;
+  font-weight: 400;
+}
+.lab-shell .model-node small {
+  font-size: 11px;
+  margin-top: 9px;
+  color: #60766d;
+}
+.lab-shell .node-state {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.2px;
+  margin-top: 18px;
+  color: #4e6f61;
+}
+.lab-shell .storage-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font:
+    11px/1.8 Consolas,
+    monospace;
+  color: #647b71;
+  border-top: 1px solid #7591854f;
+  margin-top: 18px;
+  padding-top: 15px;
+}
+.lab-shell [data-kind='services'] .deployment-boundary {
+  border-color: transparent;
+  background: transparent;
+  padding-inline: 0;
+}
+.lab-shell [data-kind='services'] .boundary-label {
+  left: 0;
+  padding-left: 0;
+}
+.lab-shell [data-kind='services'] .model-node {
+  background: #dfe8df;
+  border-color: #819e92;
+  transform: translateY(-4px);
+  padding-inline: 15px;
+}
+.lab-shell [data-kind='services'] .storage-line {
+  margin-top: 20px;
+}
+.lab-shell .model-node.failed {
+  background: #d6afa766 !important;
+  border-color: #a16d67 !important;
+  transform: translateY(3px) !important;
+}
+.lab-shell .model-node.failed .node-state {
+  color: #814d47;
+}
+.lab-shell .model-node.waiting {
+  border-color: #a18aaf;
+  background: #e5deeb;
+}
+.lab-shell .model-node.waiting .node-state {
+  color: #695978;
+}
+.lab-shell .model-link.blocked {
+  color: #87574f !important;
+  text-decoration: line-through;
+}
+.lab-shell .model-link.queued {
+  color: #695978 !important;
+  white-space: normal;
+  max-width: 80px;
+  line-height: 1.8;
+}
+.lab-shell .model-verdict {
+  display: flex;
+  gap: 15px;
+  margin: 23px 0;
+  align-items: start;
+  color: #50685e;
+  font-size: 12px;
+  line-height: 1.9;
+  min-height: 48px;
+}
+.lab-shell .verdict-mark {
+  font:
+    24px Georgia,
+    serif;
+  color: #718a80;
+  line-height: 1.2;
+}
+.lab-shell .consequence-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border-block: 1px solid #6b887c47;
+  padding: 22px 0;
+}
+.lab-shell .consequence-ledger > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lab-shell .consequence-ledger span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #6d857b;
+}
+.lab-shell .consequence-ledger strong {
+  font-size: 13px;
+  font-weight: 400;
+  color: #374e44;
+}
+.lab-shell .reasoning-note {
+  margin-top: 14px;
+  color: #5a7268;
+}
+.lab-shell .reasoning-note p {
+  padding: 10px 0 15px;
+  max-width: 760px;
+}

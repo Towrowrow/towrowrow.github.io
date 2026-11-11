@@ -1,0 +1,327 @@
+/* Request Playground */
+.lab-shell .playground-experience {
+  background: #111b18;
+  color: #e2eae7;
+  padding: 80px 56px 55px;
+}
+.lab-shell .playground-title {
+  display: grid;
+  grid-template-columns: 110px 1fr 130px;
+  gap: 30px;
+  align-items: end;
+}
+.lab-shell .chapter-side {
+  align-self: start;
+  font:
+    11px/1.9 Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: #90a99f;
+  padding-top: 8px;
+}
+.lab-shell .playground-title h2 {
+  font-size: 52px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+.lab-shell .playground-title em {
+  color: #b8c9ae;
+}
+.lab-shell .playground-title p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #97a9a2;
+  margin-top: 20px;
+  max-width: 380px;
+}
+.lab-shell .simulation-label {
+  font:
+    11px/1.9 Consolas,
+    monospace;
+  color: #8da098;
+  text-align: right;
+}
+.lab-shell .play-controls {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 25px;
+  margin: 35px 0 24px;
+}
+.lab-shell .play-controls label {
+  font:
+    11px Consolas,
+    monospace;
+  color: #839c92;
+  letter-spacing: 0.8px;
+}
+.lab-shell .play-controls select {
+  display: block;
+  margin-top: 10px;
+  background: #263b35;
+  border-color: #576f65;
+  color: #bdd0c8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0;
+  min-width: 290px;
+}
+.lab-shell .play-controls button {
+  padding: 10px 14px;
+  color: #88a498;
+  border-color: #506d614f;
+  font-size: 11px;
+}
+.lab-shell .request-workbench {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+  gap: 0;
+}
+.lab-shell .document-scene {
+  background: #f0eee6;
+  color: #263b35;
+  padding: 25px 25px 22px;
+  position: relative;
+  z-index: 1;
+}
+.lab-shell .document-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font:
+    11px Consolas,
+    monospace;
+  color: #6f857c;
+  line-height: 1.7;
+}
+.lab-shell .document-number {
+  display: block;
+  font:
+    11px Consolas,
+    monospace;
+  color: #7c9088;
+  margin-top: 28px;
+}
+.lab-shell .document-scene h3 {
+  font:
+    36px/1.1 Georgia,
+    serif;
+  margin-top: 15px;
+  letter-spacing: -1px;
+  max-width: 360px;
+}
+.lab-shell .document-context {
+  color: #768780;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 20px;
+  max-width: 320px;
+}
+.lab-shell .edit-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-block: 1px solid #74918545;
+  padding: 17px 0;
+  margin-top: 28px;
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+.lab-shell .edit-row > span {
+  color: #688277;
+}
+.lab-shell .edit-row strong {
+  font-size: 13px;
+  font-weight: 400;
+}
+.lab-shell .edit-row button {
+  padding: 7px 10px;
+  margin-left: auto;
+  border-color: #6f8e8166;
+  color: #506c60;
+  font-size: 11px;
+  min-height: 36px;
+}
+.lab-shell .projection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+.lab-shell .projection > span {
+  font:
+    11px Consolas,
+    monospace;
+  color: #71887e;
+  letter-spacing: 0.7px;
+}
+.lab-shell .projection strong {
+  font-size: 12px;
+  font-weight: 400;
+  color: #466256;
+}
+.lab-shell .document-actions {
+  margin-top: 25px;
+}
+.lab-shell .document-actions button {
+  padding: 13px 15px;
+  border-color: #36584a;
+  color: #e8eeec;
+  background: #36584a;
+  font-size: 11px;
+}
+.lab-shell .request-feedback {
+  border-top: 1px solid #74918545;
+  padding-top: 20px;
+  margin-top: 26px;
+  min-height: 110px;
+}
+.lab-shell .request-feedback strong {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.6;
+  display: block;
+}
+.lab-shell .request-feedback p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #698076;
+  margin-top: 10px;
+}
+.lab-shell .protocol-scene {
+  padding: 22px 0 20px 28px;
+  background: #182722;
+}
+.lab-shell .protocol-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.8px;
+  color: #95b0a5;
+  margin-bottom: 26px;
+}
+.lab-shell .protocol-heading > span:last-child {
+  color: #688277;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.lab-shell .request-trace {
+  padding: 0 15px 0 18px;
+  margin: 0;
+  border-left: 1px solid #5d7d7047;
+  list-style: none;
+}
+.lab-shell .request-trace li {
+  position: relative;
+  padding: 0 0 24px;
+  color: #637970;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+.lab-shell .request-trace li:before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #4a5f56;
+  top: 5px;
+  left: -21px;
+}
+.lab-shell .request-trace li > span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.7px;
+}
+.lab-shell .request-trace li p {
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 8px;
+  max-width: 280px;
+}
+.lab-shell .request-trace .trace-active {
+  color: #b8c9ae;
+  transform: translateX(3px);
+}
+.lab-shell .request-trace .trace-active:before {
+  background: #b8c9ae;
+  box-shadow: 0 0 10px #a3bdb244;
+}
+.lab-shell .protocol-scene > button {
+  font-size: 11px;
+  padding: 11px 13px;
+  color: #a9c2b8;
+  border-color: #5b7e6f4a;
+  margin-top: 5px;
+  max-width: calc(100% - 18px);
+}
+.lab-shell .confirmed-state {
+  border-top: 1px solid #5d7d7047;
+  margin-top: 25px;
+  padding: 20px 18px 0 0;
+}
+.lab-shell .confirmed-state > span {
+  font:
+    11px Consolas,
+    monospace;
+  letter-spacing: 0.7px;
+  color: #758e84;
+  display: block;
+}
+.lab-shell .confirmed-state code {
+  font-size: 11px;
+  color: #a4bfb4;
+  display: block;
+  margin-top: 13px;
+  line-height: 1.8;
+  padding: 0;
+}
+.lab-shell .reconciliation-actions {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #a8c2b74d;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.lab-shell .reconciliation-actions[hidden] {
+  display: none;
+}
+.lab-shell .reconciliation-actions strong {
+  font-size: 13px;
+  font-weight: 400;
+  color: #bbcfc7;
+}
+.lab-shell .reconciliation-actions > div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.lab-shell .reconciliation-actions button {
+  color: #a0bcb0;
+  border-color: #6b908173;
+  padding: 10px 12px;
+  font-size: 11px;
+}
+.lab-shell .protocol-detail {
+  color: #879f95;
+  margin-top: 22px;
+}
+.lab-shell .protocol-detail pre {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #adc4ba;
+  padding: 18px 0;
+  margin: 0;
+}
+.lab-shell .protocol-detail p {
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
