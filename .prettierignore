@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.prerender/
+.refactor-baseline/
+package-lock.json
+seo-audit*.json
+*.tsbuildinfo
+public/

@@ -1,5 +1,6 @@
-import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { test } from 'node:test';
+
 import { assetUrl } from '../src/utils/assets.ts';
 
 test('public project images remain inside the GitHub Pages site root', () => {
@@ -8,8 +9,14 @@ test('public project images remain inside the GitHub Pages site root', () => {
 });
 
 test('subdirectory assets are not double-prefixed', () => {
-  assert.equal(assetUrl('projects/example.webp', '/portfolio/'), '/portfolio/projects/example.webp');
-  assert.equal(assetUrl('/portfolio/projects/example.webp', '/portfolio/'), '/portfolio/projects/example.webp');
+  assert.equal(
+    assetUrl('projects/example.webp', '/portfolio/'),
+    '/portfolio/projects/example.webp',
+  );
+  assert.equal(
+    assetUrl('/portfolio/projects/example.webp', '/portfolio/'),
+    '/portfolio/projects/example.webp',
+  );
 });
 
 test('external project images are preserved', () => {

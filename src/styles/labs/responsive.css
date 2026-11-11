@@ -1,0 +1,419 @@
+@container lab-product (max-width:650px) {
+  .lab-shell .decision-experience {
+    padding: 25px 20px 20px;
+  }
+  .lab-shell .decision-masthead {
+    display: block;
+    font-size: 11px;
+  }
+  .lab-shell .decision-masthead > span {
+    display: block;
+    margin-top: 9px;
+  }
+  .lab-shell .decision-experience h2 {
+    font-size: 50px;
+    letter-spacing: -2px;
+    margin-top: 35px;
+  }
+  .lab-shell .decision-deck {
+    font-size: 12px;
+  }
+  .lab-shell .architecture-choice {
+    flex-direction: column;
+    gap: 8px;
+    margin: 25px 0;
+  }
+  .lab-shell .architecture-choice button {
+    font-size: 12px;
+    padding: 14px;
+    text-align: left;
+  }
+  .lab-shell .architecture-choice button[aria-pressed='true'] {
+    transform: none;
+  }
+  .lab-shell .experiment-strip {
+    display: block;
+    padding-top: 20px;
+  }
+  .lab-shell .experiment-strip label {
+    font-size: 11px;
+  }
+  .lab-shell .experiment-strip select {
+    width: 100%;
+    min-width: 0;
+    font-size: 12px;
+  }
+  .lab-shell .queue-choice {
+    display: block;
+    margin-top: 20px;
+    max-width: none;
+    font-size: 12px !important;
+  }
+  .lab-shell .queue-choice > span {
+    font-size: 11px;
+  }
+  .lab-shell .model-nodes {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .lab-shell .model-node {
+    width: 100%;
+    min-height: 115px;
+    padding: 18px 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+  }
+  .lab-shell .process-tag {
+    grid-column: 1/-1;
+    font-size: 11px;
+  }
+  .lab-shell .model-node strong {
+    font-size: 24px;
+    margin: 0;
+    grid-column: 1/-1;
+  }
+  .lab-shell .model-node small {
+    margin: 0;
+    font-size: 11px;
+  }
+  .lab-shell .node-state {
+    margin: 0;
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+  }
+  .lab-shell .model-node + .model-link {
+    font-size: 11px;
+    min-height: 22px;
+    line-height: 1.7;
+  }
+  .lab-shell .storage-line {
+    display: block;
+    font-size: 11px;
+  }
+  .lab-shell .storage-line > span {
+    display: block;
+    margin-top: 8px;
+  }
+  .lab-shell .boundary-label {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    left: 8px;
+  }
+  .lab-shell .deployment-boundary {
+    padding: 22px 12px 12px;
+  }
+  .lab-shell .model-verdict {
+    font-size: 12px;
+    line-height: 1.9;
+    margin-top: 20px;
+  }
+  .lab-shell .consequence-ledger {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .lab-shell .consequence-ledger > div {
+    gap: 7px;
+  }
+  .lab-shell .consequence-ledger span {
+    font-size: 11px;
+  }
+  .lab-shell .consequence-ledger strong {
+    font-size: 13px;
+  }
+  .lab-shell .reasoning-note {
+    font-size: 11px;
+  }
+  .lab-shell .playground-experience {
+    padding: 28px 20px 22px;
+  }
+  .lab-shell .playground-title {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .lab-shell .chapter-side {
+    font-size: 11px;
+  }
+  .lab-shell .playground-title h2 {
+    font-size: 45px;
+    letter-spacing: -2px;
+  }
+  .lab-shell .playground-title p {
+    font-size: 12px;
+    margin-top: 18px;
+  }
+  .lab-shell .simulation-label {
+    text-align: left;
+    font-size: 11px;
+  }
+  .lab-shell .play-controls {
+    display: block;
+    margin: 25px 0 22px;
+  }
+  .lab-shell .play-controls label {
+    font-size: 11px;
+  }
+  .lab-shell .play-controls select {
+    width: 100%;
+    min-width: 0;
+    font-size: 12px;
+  }
+  .lab-shell .play-controls > button {
+    margin-top: 15px;
+    font-size: 11px;
+  }
+  .lab-shell .request-workbench {
+    grid-template-columns: 1fr;
+  }
+  .lab-shell .document-scene {
+    padding: 22px 18px;
+  }
+  .lab-shell .document-meta {
+    font-size: 11px;
+  }
+  .lab-shell .document-scene h3 {
+    font-size: 33px;
+  }
+  .lab-shell .document-context {
+    font-size: 11px;
+  }
+  .lab-shell .edit-row {
+    font-size: 12px;
+    gap: 12px;
+  }
+  .lab-shell .edit-row button {
+    margin-left: 0;
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .lab-shell .projection > span {
+    font-size: 11px;
+  }
+  .lab-shell .projection strong {
+    font-size: 12px;
+  }
+  .lab-shell .document-actions button {
+    font-size: 11px;
+    width: 100%;
+    min-height: 44px;
+  }
+  .lab-shell .request-feedback strong {
+    font-size: 13px;
+  }
+  .lab-shell .request-feedback p {
+    font-size: 12px;
+  }
+  .lab-shell .protocol-scene {
+    padding: 25px 20px;
+  }
+  .lab-shell .protocol-heading {
+    font-size: 11px;
+  }
+  .lab-shell .request-trace li > span {
+    font-size: 11px;
+  }
+  .lab-shell .request-trace li p {
+    font-size: 12px;
+  }
+  .lab-shell .protocol-scene > button {
+    font-size: 11px;
+    max-width: 100%;
+  }
+  .lab-shell .confirmed-state > span {
+    font-size: 11px;
+  }
+  .lab-shell .confirmed-state code {
+    font-size: 11px;
+  }
+  .lab-shell .reconciliation-actions {
+    display: block;
+    padding: 18px;
+  }
+  .lab-shell .reconciliation-actions > div {
+    margin-top: 15px;
+  }
+  .lab-shell .reconciliation-actions button {
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .lab-shell .protocol-detail {
+    font-size: 11px;
+  }
+  .lab-shell .agent-experience {
+    padding: 28px 20px;
+  }
+  .lab-shell .agent-title {
+    display: block;
+  }
+  .lab-shell .agent-title > span {
+    font-size: 11px;
+  }
+  .lab-shell .agent-title > div {
+    width: 100%;
+    margin-top: 28px;
+  }
+  .lab-shell .agent-title h2 {
+    font-size: 54px;
+    letter-spacing: -2px;
+  }
+  .lab-shell .agent-title p {
+    font-size: 12px;
+  }
+  .lab-shell .agent-control-strip {
+    display: block;
+    margin: 28px 0 23px;
+  }
+  .lab-shell .agent-control-strip label {
+    font-size: 11px;
+  }
+  .lab-shell .agent-control-strip select {
+    width: 100%;
+    min-width: 0;
+    font-size: 12px;
+  }
+  .lab-shell .agent-control-strip > span {
+    display: block;
+    text-align: left;
+    font-size: 11px;
+    margin-top: 15px;
+  }
+  .lab-shell .orchestration-stage {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .lab-shell .network-caption {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .lab-shell .agent-constellation {
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-top: 6px;
+  }
+  .lab-shell .connection-map {
+    display: none;
+  }
+  .lab-shell .agent-node,
+  .lab-shell .support-node,
+  .lab-shell .orchestrator-core {
+    position: static;
+    width: auto;
+    transform: none !important;
+  }
+  .lab-shell .orchestrator-core {
+    grid-column: 1/-1;
+    grid-row: 1;
+    aspect-ratio: auto;
+    border-radius: 0 !important;
+    padding: 19px;
+    gap: 8px;
+    border-block: 1px solid #956db070 !important;
+    border-inline: 0 !important;
+    background: transparent !important;
+    margin-bottom: 10px;
+    min-height: 100px;
+  }
+  .lab-shell .orchestrator-core > span {
+    display: none;
+  }
+  .lab-shell .orchestrator-core strong {
+    font-size: 18px;
+  }
+  .lab-shell .orchestrator-core small {
+    font-size: 11px;
+    margin: 0;
+  }
+  .lab-shell .agent-node {
+    min-height: 100px;
+    padding: 15px 12px;
+    gap: 10px;
+  }
+  .lab-shell .agent-node > span {
+    font-size: 11px;
+  }
+  .lab-shell .agent-node strong {
+    font-size: 16px;
+  }
+  .lab-shell .agent-node small {
+    font-size: 11px;
+  }
+  .lab-shell .support-node {
+    font-size: 12px;
+    padding-top: 10px !important;
+    min-height: 50px !important;
+  }
+  .lab-shell .support-node small {
+    font-size: 11px;
+  }
+  .lab-shell .step-navigation {
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .lab-shell .step-navigation button {
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .lab-shell .deliverable-scene {
+    margin-top: 0;
+    padding: 22px 18px;
+    min-height: 0;
+    box-shadow: 5px 7px 0 #110e1644;
+  }
+  .lab-shell .deliverable-meta {
+    font-size: 11px;
+  }
+  .lab-shell .deliverable-scene h3 {
+    font-size: 30px;
+    margin-top: 23px;
+  }
+  .lab-shell .deliverable-scene > p {
+    font-size: 12px;
+  }
+  .lab-shell .deliverable-body {
+    font-size: 12px;
+  }
+  .lab-shell .deliverable-body pre {
+    font-size: 11px;
+  }
+  .lab-shell .deliverable-status strong {
+    font-size: 12px;
+  }
+  .lab-shell .human-validation {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 32px;
+  }
+  .lab-shell .human-label {
+    font-size: 11px;
+  }
+  .lab-shell .human-validation h3 {
+    font-size: 31px;
+  }
+  .lab-shell .human-actions > p {
+    font-size: 12px;
+  }
+  .lab-shell .human-checks label {
+    font-size: 12px;
+  }
+  .lab-shell .human-buttons button {
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .lab-shell [data-human-result] {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-shell * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .lab-shell .connection.is-active {
+    stroke-dasharray: none;
+  }
+}

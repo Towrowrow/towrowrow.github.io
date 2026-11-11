@@ -1,3 +1,5 @@
 import { createContext } from 'react';
-/** Static HTML is visible without JavaScript; browser animations remain unchanged. */
-export const StaticRenderingContext = createContext(false);
+/** SSR and the first browser render must both keep prerendered content visible.
+ * Never hide existing HTML while waiting for an intersection observer or animation.
+ */
+export const StaticRenderingContext = createContext(true);

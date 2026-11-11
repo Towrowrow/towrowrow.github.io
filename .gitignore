@@ -1,4 +1,5 @@
 node_modules/
+.refactor-baseline/
 dist/
 .prerender/
 seo-audit*.json
@@ -6,3 +7,11 @@ seo-audit*.json
 *.tsbuildinfo
 preview.png
 preview-v2*.png
+1787902522947.jfif
+QUALITY_REVIEW_V2.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.log

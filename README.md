@@ -1,83 +1,89 @@
 # Rémi Tilmant — Portfolio Full-Stack & AI Engineering
 
-Portfolio statique bilingue FR/EN, construit avec React, TypeScript strict, Vite, Tailwind CSS, Motion et Lucide. Aucune API, aucun backend, aucun tracking. Les visualisations d’architecture et d’agents sont pédagogiques : elles n’exécutent aucun agent.
+Portfolio personnel statique bilingue, construit avec React, TypeScript strict, Vite, Tailwind CSS, Motion et Lucide. Ce site est le projet présenté : les laboratoires sont des simulations pédagogiques locales, sans backend, sans appel à un modèle IA et sans tracking.
 
-## Développement
+URL publique prévue : **https://towrowrow.github.io/**. Français sur `/`, anglais sur `/en/`.
 
-Node.js 22.12+ recommandé.
+## Démarrer
+
+Node.js **22.13+** (branche 22 LTS ou version LTS plus récente) et npm.
 
 ```sh
 npm ci
 npm run dev
-npm test
-npm run build
-npm run preview
 ```
 
-Le build final se trouve dans `dist/`. Il comprend le HTML pré-rendu FR/EN, les métadonnées et les données structurées, sans serveur React en production. Le serveur de développement affiche son adresse locale dans le terminal. Voir [SEO.md](SEO.md) pour les détails SEO et la validation Search Console.
+## Commandes de qualité
 
-## Modifier le contenu
+| Commande               | Rôle                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| `npm run format`       | Formater le code, les styles et la configuration avec Prettier                |
+| `npm run format:check` | Vérifier le formatage sans modifier les fichiers                              |
+| `npm run lint`         | ESLint : imports, hooks, types explicites et absence de ternaires imbriqués   |
+| `npm run typecheck`    | Vérifier TypeScript dans l’application, la configuration Vite et les tests TS |
+| `npm test`             | Exécuter les tests de logique, de présentation et de traitement du template   |
+| `npm run check`        | Enchaîner formatage, lint, typage et tests                                    |
+| `npm run build`        | Vérifier les types, construire, pré-rendre FR/EN et tester le HTML SEO final  |
+| `npm run preview`      | Servir le build sur http://127.0.0.1:4173/                                    |
 
-### Évolution visuelle V2
+Le workflow existant exécute `npm ci`, `npm run check` puis `npm run build` avant de publier uniquement `dist/`. Ces commandes locales ne publient rien.
 
-La V2 conserve l’application, les données de profil, les filtres, les projets typés et l’internationalisation de la V1. `src/components/EngineeringExperience.tsx` contient trois composants indépendants : `CinematicHero`, `ArchitectureExplorer` et `AgentWorkflow`. Les rôles, technologies, approches et livrables des deux démonstrations sont centralisés dans `src/data/engineering.ts`. Les animations d’échange illustrent un parcours conceptuel, pas le trafic d’un vrai système ou l’exécution d’agents.
+## Organisation
 
-`src/v2.css` définit la nouvelle direction artistique au-dessus des styles partagés : grand nom typographique, profondeur en CSS, contraste anthracite/sauge et espace violet pour les agents. Aucune dépendance supplémentaire, police distante, vidéo ni image lourde n’est ajoutée. Les animations CSS et Motion respectent les préférences de mouvement réduit. L’architecture s’explore au clic et au clavier ; les panneaux annoncent leurs changements et les boutons exposent leur état sélectionné.
-
-- `src/data/profile.ts` : identité, GitHub, email et LinkedIn. Les liens vides sont masqués. Renseigner `careerStart` au format `YYYY-MM-DD` pour calculer les années révolues automatiquement. Sans date, `initialExperience: 7` est la référence unique, à actualiser manuellement. Aucune date de carrière n’a été supposée.
-- `src/data/content.ts` : textes d’interface français et anglais. Le français est servi sur `/`, la version anglaise sur `/en/`, avec des liens de langue explorables.
-- `src/data/skills.ts` : les quatre domaines, descriptions et technologies des filtres.
-- `src/data/projects.ts` : liste typée des futurs projets publics. Aucun ancien dépôt privé ou archivé n’est affiché.
-- `src/styles.css` : identité graphique et responsive. Les préférences de mouvement réduit sont respectées.
-
-Pour ajouter un projet, ajouter un objet à `projects` : `id`, `name`, `description: { fr, en }`, `stack`, `image`, `imageAlt: { fr, en }`, `github`, `category` (`frontend`, `backend`, `architecture` ou `ai`) et éventuellement `demo`. Placer les visuels dans `public/projects/` et référencer `projects/nom.webp` (chemin relatif au dossier public ; le préfixe Vite est ajouté automatiquement). Les cartes et filtres sont générés sans changer les composants. Utiliser uniquement des liens HTTPS de confiance. Le mode vide disparaît automatiquement.
-
-## GitHub Pages — dépôt existant
-
-Le dossier local reste `PORTOFOLIO`. Le dépôt existant a été renommé en `Towrowrow/towrowrow.github.io` en conservant son historique. URL publique : **https://towrowrow.github.io/**. La branche principale reste `master` et le remote local pointe vers le nouveau nom.
-
-- `vite.config.ts` utilise `base: '/'` pour les bundles JavaScript et CSS.
-- Le favicon utilise `%BASE_URL%` dans le HTML. Les images des futurs projets passent par `src/utils/assets.ts` avec `import.meta.env.BASE_URL` ; les URL externes sont préservées.
-- Les traductions FR/EN sont importées depuis TypeScript et compilées dans le bundle : aucun téléchargement à la racine du domaine.
-- La navigation est fondée sur des ancres (`#expertise`, `#ai`, etc.) qui conservent `/`. Il n’existe pas de routes nécessitant un fallback serveur ou une page 404 personnalisée.
-- Canonical, Open Graph et sitemap ciblent la racine du site. `public/robots.txt` est servi à `/robots.txt` et référence `https://towrowrow.github.io/sitemap.xml`.
-
-### Activer Pages
-
-1. Envoyer les modifications dans le dépôt **existant** `Towrowrow/towrowrow.github.io`, sur `master`, en conservant `package-lock.json`. Chaque push lance le workflow de déploiement existant.
-2. Ouvrir le dépôt → **Settings → Pages → Build and deployment**.
-3. Dans **Source**, sélectionner **GitHub Actions**. Ne pas créer de branche `gh-pages` et ne pas sélectionner un dossier `/docs`.
-4. Ouvrir **Actions → Deploy portfolio to GitHub Pages**. Le prochain push sur `master` déclenche le workflow ; pour déployer le code déjà présent, utiliser **Run workflow** avec la branche `master` après l’activation de Pages.
-5. Attendre la réussite des jobs `build` et `deploy`, puis consulter **https://towrowrow.github.io/**.
-
-Le workflow exécute `npm ci`, `npm test` et `npm run build`, charge uniquement `dist/`, puis déploie avec l’environnement `github-pages` et les permissions Pages/OIDC. Si les règles du dépôt demandent une approbation de cet environnement, la valider dans Actions. Si la branche par défaut est changée ultérieurement, adapter `on.push.branches` dans `.github/workflows/deploy.yml`.
-
-### Vérifier le build local sous le même chemin
-
-```sh
-npm test
-npm run build
-npm run preview
+```text
+src/
+  App.tsx                         Composition du parcours et métadonnées côté navigateur
+  components/                     Hero, présentation, expertise, architecture, navigation, contact
+  features/
+    engineering-decisions/        Contrôles, diagramme, conséquences et composition
+    request-playground/           Document, cycle de requête, résolutions et composition
+    ai-engineering-lab/           Réseau, livrables, validation humaine et composition
+  labs/                           Fonctions et reducers purs ; aucune dépendance React
+  i18n/                           Traductions site, décisions, playground, agents et livrables
+  data/                           Profil, compétences, couches d’architecture, SEO
+  styles/                         Styles globaux, Hero, sections et laboratoires
+    labs/                         Cadre commun, chaque laboratoire, responsive, états accessibles
+  utils/                          Résolution des assets et validation des options natives
+scripts/                          Pré-rendu et traitement du template HTML
+public/                           Assets publiés, photographie optimisée et validation Google
+tests/                           Tests des simulations, présentation et HTML de production
 ```
 
-Ouvrir **http://127.0.0.1:4173/** (ou le port affiché par Vite). Tester la bascule FR/EN, les ancres et le favicon. Les tests couvrent également les chemins des futurs visuels de projets. Ces commandes ne publient rien.
+Chaque fonctionnalité possède un composant de composition et quelques panneaux présentatifs. Les changements d’état restent dans les reducers purs de `src/labs/`. Les fonctions `presentation.ts` dérivent les libellés et états visuels sans créer une seconde source d’état. Aucun hook personnalisé n’est nécessaire pour envelopper simplement `useReducer`.
 
-Les tests couvrent les chemins des futurs visuels de projets à la racine (la liste de projets est actuellement vide) et préservent la prise en charge d’une base en sous-répertoire. Après un déploiement, vérifier la réponse HTTPS, les bundles CSS/JS, le favicon, les ancres et les traductions FR/EN. Pages doit conserver GitHub Actions comme source.
+Les états du Playground forment une union discriminée : seules les requêtes en attente portent un type de tentative. Les options, couches, événements et rôles sont nommés ; les traductions ne dépendent pas d’index alignés à la main. Les livrables IA combinent une base commune et des variantes de scénario pour éviter de dupliquer des paragraphes identiques.
 
-## Qualité et limites éditoriales
+## Contenu et traductions
 
-Navigation clavier, lien d’évitement, boutons avec états accessibles, mises à jour annoncées pour les panneaux, images différées pour les futurs projets, responsive et mouvement réduit. Les tests portent sur le calcul d’expérience. Le build vérifie TypeScript et produit les fichiers optimisés. Le texte de présentation contient uniquement les informations fournies ; pas de clients, de métriques de performance ni d’expériences inventées.
+- `src/data/profile.ts` : identité, email, GitHub, liens optionnels et expérience. Les liens vides sont masqués. Sans `careerStart`, la référence est `initialExperience: 7` ; aucune date n’est inventée.
+- `src/i18n/site.ts` : navigation, Hero et sections éditoriales.
+- `src/i18n/decisions.ts`, `playground.ts`, `agents.ts` : textes des trois laboratoires.
+- `src/i18n/artifacts.ts` : exemples de livrables simulés, distincts de la logique de sélection.
+- `src/data/skills.ts` et `engineering.ts` : compétences et architecture conceptuelle.
+- `src/data/seo.ts` : titres, descriptions, URLs canoniques et Schema.org `Person`.
 
-Le contact propose GitHub et `mailto:towtowrow@gmail.com`. LinkedIn reste configurable. Aucun formulaire ne prétend envoyer de message.
+Chaque domaine utilise les mêmes clés FR/EN, vérifiées par TypeScript (`TranslationShape`). Le HTML principal et le SEO sont pré-rendus dans les deux langues ; les liens de langue restent de vrais liens explorables. L’hydratation enrichit le HTML existant sans le masquer.
 
-## Vérification de cette version
+La photographie autorisée est `public/images/remi-tilmant.webp` : 400 × 400, environ 15 Ko, sans modification d’apparence. La taille affichée est définie en CSS : 210 px sur desktop et 112 px sur mobile. Le JFIF original et les captures de revue ne sont pas copiés dans `dist/`.
 
-- `npm test` : 2 tests réussis (date inconnue/invalide, anniversaire et date future).
-- `npm run build` : compilation TypeScript et build Vite réussis.
-- Serveur local : réponse HTTP 200.
-- Navigateur : rendu desktop et mobile, sélection de couche backend, filtre backend, rôle Reviewer, bascule FR/EN et menu mobile vérifiés. Aucun débordement horizontal dans le viewport mobile contrôlé ; aucune erreur ou alerte de console relevée.
-- La publication GitHub Pages n’a pas été exécutée. Aucun audit Lighthouse ni vérification sur appareil physique n’a été réalisé.
+## Ajouter un laboratoire
 
-### Contrôles V2
+1. Créer les types et transitions purs dans `src/labs/`, avec des actions explicites et des gardes pour les actions hors contexte.
+2. Tester les comportements, erreurs, changements de scénario et réinitialisations dans `tests/` ; ajouter les fonctions de présentation testables si nécessaire.
+3. Créer sa composition et ses panneaux dans `src/features/nom-du-laboratoire/`. Garder l’état au plus près de la composition ; ne pas multiplier les abstractions pour des fragments triviaux.
+4. Définir les textes FR/EN dans `src/i18n/`, puis les styles dans `src/styles/`. Conserver le focus clavier, les annonces utiles et `prefers-reduced-motion`.
+5. Ajouter la section dans `App.tsx`, maintenir une identité et des ancres uniques, puis exécuter `npm run check` et `npm run build`.
 
-Build de production et tests réussis. Rendu contrôlé dans le navigateur sur desktop, tablette et petits écrans (viewports demandés : 820, 390 et 320 px). Les débordements de grille et des éléments décoratifs identifiés ont été corrigés. Sélections Services/Database, agents Reviewer/Tester, bascule FR/EN, menu mobile et cible `mailto:` vérifiés. Aucune erreur ou alerte console relevée. Le mouvement réduit est pris en charge par MotionConfig et les règles CSS dédiées ; il n’a pas fait l’objet d’un audit avec lecteur d’écran. Aucune publication et aucune nouvelle dépendance.
+Un laboratoire doit décrire honnêtement ce qui fonctionne réellement et ce qui est simulé. Ne pas ajouter de faux projet professionnel ni d’information sur un employeur ou client.
+
+## Déploiement existant
+
+Le dossier local reste `PORTOFOLIO`. Le remote est `Towrowrow/towrowrow.github.io`, branche `master`. Vite utilise `base: '/'`. Aucun autre dépôt n’est concerné.
+
+GitHub Pages doit utiliser **Settings → Pages → Source : GitHub Actions**. Le workflow `.github/workflows/deploy.yml` est déclenché par les pushes sur `master` et par `workflow_dispatch`. Il conserve le déploiement Pages/OIDC existant. Ne pousser qu’après validation explicite.
+
+Voir [SEO.md](SEO.md) pour les métadonnées et la validation Google, et [CODE_QUALITY_REVIEW.md](CODE_QUALITY_REVIEW.md) pour l’audit et la refactorisation V2.
+
+## Outillage
+
+Prettier gère le formatage ; ESLint gère les imports et les règles de code, sans doublonner les règles de présentation. Les builds, captures et rapports Lighthouse sont exclus des vérifications source. `minimatch` est contraint à une version corrigée via `overrides` pour les outils de développement ; le lint et les tests vérifient cette combinaison. Aucun outil de qualité n’est livré dans le bundle du navigateur.
