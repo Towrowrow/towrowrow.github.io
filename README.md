@@ -30,20 +30,39 @@ La V2 conserve l’application, les données de profil, les filtres, les projets
 - `src/data/projects.ts` : liste typée des futurs projets publics. Aucun ancien dépôt privé ou archivé n’est affiché.
 - `src/styles.css` : identité graphique et responsive. Les préférences de mouvement réduit sont respectées.
 
-Pour ajouter un projet, ajouter un objet à `projects` : `id`, `name`, `description: { fr, en }`, `stack`, `image`, `imageAlt: { fr, en }`, `github`, `category` (`frontend`, `backend`, `architecture` ou `ai`) et éventuellement `demo`. Placer les visuels dans `public/projects/` et référencer `/projects/nom.webp`. Les cartes et filtres sont générés sans changer les composants. Utiliser uniquement des liens HTTPS de confiance. Le mode vide disparaît automatiquement.
+Pour ajouter un projet, ajouter un objet à `projects` : `id`, `name`, `description: { fr, en }`, `stack`, `image`, `imageAlt: { fr, en }`, `github`, `category` (`frontend`, `backend`, `architecture` ou `ai`) et éventuellement `demo`. Placer les visuels dans `public/projects/` et référencer `projects/nom.webp` (chemin relatif au dossier public ; le préfixe Vite est ajouté automatiquement). Les cartes et filtres sont générés sans changer les composants. Utiliser uniquement des liens HTTPS de confiance. Le mode vide disparaît automatiquement.
 
-## GitHub Pages — préparation sans publication
+## GitHub Pages — dépôt existant
 
-Le site vise le dépôt utilisateur `Towrowrow.github.io` et l’URL `https://towrowrow.github.io/`. La configuration Vite utilise donc `base: '/'`. Aucun dépôt distant n’est créé, aucun code n’est poussé par cette livraison.
+Le dossier local reste `PORTOFOLIO` et le dépôt cible reste `Towrowrow/portofolio`. URL publique prévue : **https://towrowrow.github.io/portofolio/**. Aucun dépôt ni dossier n’est renommé ou créé. La branche principale indiquée par le suivi Git local est `master`.
 
-Après accord explicite pour publier :
+- `vite.config.ts` utilise `base: '/portofolio/'` pour les bundles JavaScript et CSS.
+- Le favicon utilise `%BASE_URL%` dans le HTML. Les images des futurs projets passent par `src/utils/assets.ts` avec `import.meta.env.BASE_URL` ; les URL externes sont préservées.
+- Les traductions FR/EN sont importées depuis TypeScript et compilées dans le bundle : aucun téléchargement à la racine du domaine.
+- La navigation est fondée sur des ancres (`#expertise`, `#ai`, etc.) qui conservent `/portofolio/`. Il n’existe pas de routes nécessitant un fallback serveur ou une page 404 personnalisée.
+- Canonical, Open Graph et sitemap ciblent l’URL du sous-répertoire. `public/robots.txt` sera servi à `/portofolio/robots.txt` ; seul le propriétaire du site racine peut définir le robots.txt valable pour l’ensemble du domaine.
 
-1. Créer ou sélectionner le dépôt `Towrowrow.github.io` sur le compte souhaité.
-2. Envoyer ces fichiers à la racine du dépôt, sur la branche `main`, en incluant `package-lock.json`.
-3. Dans Settings → Pages, sélectionner **GitHub Actions** comme source.
-4. Le workflow `.github/workflows/deploy.yml` installe les dépendances verrouillées, exécute les tests, compile puis déploie l’artefact `dist` avec l’environnement `github-pages`.
+### Activer Pages
 
-Le workflow peut aussi être lancé manuellement. Si la branche principale a un autre nom, adapter le déclencheur. Pour un hébergement en sous-répertoire, adapter `base`, les chemins publics, le canonical et le sitemap.
+1. Envoyer les modifications de configuration dans le dépôt **existant** `Towrowrow/portofolio`, sur `master`, en conservant `package-lock.json`. Cette livraison ne pousse rien sur GitHub.
+2. Ouvrir le dépôt → **Settings → Pages → Build and deployment**.
+3. Dans **Source**, sélectionner **GitHub Actions**. Ne pas créer de branche `gh-pages` et ne pas sélectionner un dossier `/docs`.
+4. Ouvrir **Actions → Deploy portfolio to GitHub Pages**. Le prochain push sur `master` déclenche le workflow ; pour déployer le code déjà présent, utiliser **Run workflow** avec la branche `master` après l’activation de Pages.
+5. Attendre la réussite des jobs `build` et `deploy`, puis consulter **https://towrowrow.github.io/portofolio/**.
+
+Le workflow exécute `npm ci`, `npm test` et `npm run build`, charge uniquement `dist/`, puis déploie avec l’environnement `github-pages` et les permissions Pages/OIDC. Si les règles du dépôt demandent une approbation de cet environnement, la valider dans Actions. Si la branche par défaut est changée ultérieurement, adapter `on.push.branches` dans `.github/workflows/deploy.yml`.
+
+### Vérifier le build local sous le même chemin
+
+```sh
+npm test
+npm run build
+npm run preview
+```
+
+Ouvrir **http://127.0.0.1:4173/portofolio/** (ou le port affiché par Vite). Tester la bascule FR/EN, les ancres et le favicon. Les tests couvrent également les chemins des futurs visuels de projets. Ces commandes ne publient rien.
+
+Vérification effectuée : 4 tests réussis, build TypeScript/Vite réussi, page de production chargée sous `/portofolio/`, bascule vers l’anglais et navigation vers `/portofolio/#expertise` fonctionnelles. Les bundles CSS/JS et le favicon utilisent le préfixe attendu ; aucune erreur ou alerte console relevée. Les futurs chemins d’images sont couverts par les tests (la liste de projets est actuellement vide). Le déploiement distant reste à activer dans les paramètres du dépôt.
 
 ## Qualité et limites éditoriales
 
