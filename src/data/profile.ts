@@ -1,6 +1,6 @@
 export type Locale = 'fr' | 'en';
 export type Localized = Record<Locale, string>;
-export const profile = { name: 'Rémi Tilmant', github: 'https://github.com/Towrowrow', linkedin: '', email: '', careerStart: null as string | null, initialExperience: 7 };
+export const profile = { name: 'Rémi Tilmant', github: 'https://github.com/Towrowrow', linkedin: '', email: 'towtowrow@gmail.com', careerStart: null as string | null, initialExperience: 7 };
 export function yearsOfExperience(start: string | null, fallback: number, now = new Date()): number {
   if (!start) return fallback;
   const date = new Date(start);

@@ -3,3 +3,4 @@ dist/
 *.local
 *.tsbuildinfo
 preview.png
+preview-v2*.png
