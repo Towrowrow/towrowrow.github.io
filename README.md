@@ -34,21 +34,21 @@ Pour ajouter un projet, ajouter un objet à `projects` : `id`, `name`, `descript
 
 ## GitHub Pages — dépôt existant
 
-Le dossier local reste `PORTOFOLIO` et le dépôt cible reste `Towrowrow/PORTOFOLIO`. URL publique prévue : **https://towrowrow.github.io/PORTOFOLIO/**. Aucun dépôt ni dossier n’est renommé ou créé. La branche principale indiquée par le suivi Git local est `master`.
+Le dossier local reste `PORTOFOLIO`. Le dépôt existant a été renommé en `Towrowrow/towrowrow.github.io` en conservant son historique. URL publique : **https://towrowrow.github.io/**. La branche principale reste `master` et le remote local pointe vers le nouveau nom.
 
-- `vite.config.ts` utilise `base: '/PORTOFOLIO/'` pour les bundles JavaScript et CSS.
+- `vite.config.ts` utilise `base: '/'` pour les bundles JavaScript et CSS.
 - Le favicon utilise `%BASE_URL%` dans le HTML. Les images des futurs projets passent par `src/utils/assets.ts` avec `import.meta.env.BASE_URL` ; les URL externes sont préservées.
 - Les traductions FR/EN sont importées depuis TypeScript et compilées dans le bundle : aucun téléchargement à la racine du domaine.
-- La navigation est fondée sur des ancres (`#expertise`, `#ai`, etc.) qui conservent `/PORTOFOLIO/`. Il n’existe pas de routes nécessitant un fallback serveur ou une page 404 personnalisée.
-- Canonical, Open Graph et sitemap ciblent l’URL du sous-répertoire. `public/robots.txt` sera servi à `/PORTOFOLIO/robots.txt` ; seul le propriétaire du site racine peut définir le robots.txt valable pour l’ensemble du domaine.
+- La navigation est fondée sur des ancres (`#expertise`, `#ai`, etc.) qui conservent `/`. Il n’existe pas de routes nécessitant un fallback serveur ou une page 404 personnalisée.
+- Canonical, Open Graph et sitemap ciblent la racine du site. `public/robots.txt` est servi à `/robots.txt` et référence `https://towrowrow.github.io/sitemap.xml`.
 
 ### Activer Pages
 
-1. Envoyer les modifications de configuration dans le dépôt **existant** `Towrowrow/PORTOFOLIO`, sur `master`, en conservant `package-lock.json`. Cette livraison ne pousse rien sur GitHub.
+1. Envoyer les modifications dans le dépôt **existant** `Towrowrow/towrowrow.github.io`, sur `master`, en conservant `package-lock.json`. Chaque push lance le workflow de déploiement existant.
 2. Ouvrir le dépôt → **Settings → Pages → Build and deployment**.
 3. Dans **Source**, sélectionner **GitHub Actions**. Ne pas créer de branche `gh-pages` et ne pas sélectionner un dossier `/docs`.
 4. Ouvrir **Actions → Deploy portfolio to GitHub Pages**. Le prochain push sur `master` déclenche le workflow ; pour déployer le code déjà présent, utiliser **Run workflow** avec la branche `master` après l’activation de Pages.
-5. Attendre la réussite des jobs `build` et `deploy`, puis consulter **https://towrowrow.github.io/PORTOFOLIO/**.
+5. Attendre la réussite des jobs `build` et `deploy`, puis consulter **https://towrowrow.github.io/**.
 
 Le workflow exécute `npm ci`, `npm test` et `npm run build`, charge uniquement `dist/`, puis déploie avec l’environnement `github-pages` et les permissions Pages/OIDC. Si les règles du dépôt demandent une approbation de cet environnement, la valider dans Actions. Si la branche par défaut est changée ultérieurement, adapter `on.push.branches` dans `.github/workflows/deploy.yml`.
 
@@ -60,9 +60,9 @@ npm run build
 npm run preview
 ```
 
-Ouvrir **http://127.0.0.1:4173/PORTOFOLIO/** (ou le port affiché par Vite). Tester la bascule FR/EN, les ancres et le favicon. Les tests couvrent également les chemins des futurs visuels de projets. Ces commandes ne publient rien.
+Ouvrir **http://127.0.0.1:4173/** (ou le port affiché par Vite). Tester la bascule FR/EN, les ancres et le favicon. Les tests couvrent également les chemins des futurs visuels de projets. Ces commandes ne publient rien.
 
-Vérification effectuée : 4 tests réussis, build TypeScript/Vite réussi, page de production chargée sous `/PORTOFOLIO/`, bascule vers l’anglais et navigation vers `/PORTOFOLIO/#expertise` fonctionnelles. Les bundles CSS/JS et le favicon utilisent le préfixe attendu ; aucune erreur ou alerte console relevée. Les futurs chemins d’images sont couverts par les tests (la liste de projets est actuellement vide). Le déploiement distant reste à activer dans les paramètres du dépôt.
+Les tests couvrent les chemins des futurs visuels de projets à la racine (la liste de projets est actuellement vide) et préservent la prise en charge d’une base en sous-répertoire. Après un déploiement, vérifier la réponse HTTPS, les bundles CSS/JS, le favicon, les ancres et les traductions FR/EN. Pages doit conserver GitHub Actions comme source.
 
 ## Qualité et limites éditoriales
 
