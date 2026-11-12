@@ -4,44 +4,52 @@ import { useState } from 'react';
 
 import { layers } from '../data/engineering';
 import type { Locale } from '../data/profile';
+import { labStories } from '../i18n/labStories';
 import { siteMessages } from '../i18n/site';
 
 export function ArchitectureExplorer({ locale }: { locale: Locale }) {
   const t = siteMessages[locale];
+  const copy = labStories[locale];
+  const story = copy.architecture;
   const [selected, setSelected] = useState(0);
   const layer = layers[selected];
+  const step = story.steps[selected];
   const Icon = layer.icon;
+  const last = selected === layers.length - 1;
   return (
-    <div className="architecture-explorer">
+    <div className="architecture-explorer story-architecture">
       <div className="explorer-heading">
         <div>
           <p className="eyebrow">{t.architectureLabel}</p>
-          <h2>{t.architectureTitle}</h2>
+          <h2>{story.title}</h2>
         </div>
         <p>{t.architectureNote}</p>
       </div>
+      <p className="architecture-story-intro">{story.intro}</p>
       <div
         className="architecture-nodes"
         role="group"
-        aria-label={locale === 'fr' ? 'Couches de l’architecture' : 'Architecture layers'}
+        aria-label={
+          locale === 'fr' ? 'Le trajet de votre enregistrement' : 'The journey of your save'
+        }
       >
-        {layers.map((node, i) => {
+        {layers.map((node, index) => {
           const NodeIcon = node.icon;
           return (
             <div className="architecture-node-wrap" key={node.name}>
               <button
-                className={selected === i ? 'architecture-node selected' : 'architecture-node'}
-                aria-pressed={selected === i}
+                type="button"
+                className={selected === index ? 'architecture-node selected' : 'architecture-node'}
+                aria-pressed={selected === index}
                 aria-controls="layer-detail"
-                onClick={() => setSelected(i)}
-                onFocus={() => setSelected(i)}
+                onClick={() => setSelected(index)}
+                onFocus={() => setSelected(index)}
               >
-                <span className="node-index">0{i + 1}</span>
+                <span className="node-index">0{index + 1}</span>
                 <NodeIcon size={27} />
-                <strong>{node.name}</strong>
-                <span className="node-hint">{node.role[locale]}</span>
+                <strong>{story.steps[index].name}</strong>
               </button>
-              {i < layers.length - 1 && (
+              {index < layers.length - 1 && (
                 <span className="data-connection" aria-hidden="true">
                   <i />
                   <ArrowRight size={13} />
@@ -53,9 +61,7 @@ export function ArchitectureExplorer({ locale }: { locale: Locale }) {
       </div>
       <div className="request-legend">
         <span className="legend-dot" />
-        {locale === 'fr'
-          ? 'Requête → traitement → persistance · réponse en retour'
-          : 'Request → processing → persistence · response back'}
+        {story.legend}
       </div>
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
@@ -71,21 +77,44 @@ export function ArchitectureExplorer({ locale }: { locale: Locale }) {
           <div className="layer-detail-title">
             <Icon />
             <span>
-              0{selected + 1} / {layer.name}
+              {selected + 1} / {layers.length}
             </span>
-            <h3>{layer.role[locale]}</h3>
-            <code>{layer.contract}</code>
+            <h3>{step.title}</h3>
           </div>
           <div className="layer-detail-copy">
-            <p>{layer.body[locale]}</p>
-            <div className="tags">
-              {layer.stack.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
-            </div>
+            <p>{step.body}</p>
+            <p className="architecture-benefit">{step.why}</p>
           </div>
         </motion.div>
       </AnimatePresence>
+      <div className="architecture-next">
+        <button
+          type="button"
+          className="story-primary"
+          onClick={() => setSelected((selected + 1) % layers.length)}
+        >
+          {last ? story.again : story.next} →
+        </button>
+      </div>
+      {last && (
+        <div className="story-conclusion">
+          <p>{story.benefit}</p>
+          <small>{story.skills}</small>
+        </div>
+      )}
+      <details className="story-technical" data-technical="architecture">
+        <summary>{copy.technical}</summary>
+        <h3>
+          {layer.name} · {layer.role[locale]}
+        </h3>
+        <code>{layer.contract}</code>
+        <p>{layer.body[locale]}</p>
+        <div className="tags">
+          {layer.stack.map((tech) => (
+            <span key={tech}>{tech}</span>
+          ))}
+        </div>
+      </details>
     </div>
   );
 }

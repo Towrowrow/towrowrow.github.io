@@ -1,0 +1,364 @@
+/* Story-led laboratories: each keeps its own canvas, controls and visual language. */
+.story-decisions {
+  --story-muted: #52665b;
+}
+.story-agents {
+  --story-muted: #c3afd0;
+}
+.story-technical {
+  margin-top: 28px;
+  border-top: 1px solid #91a69755;
+  padding-top: 8px;
+  color: var(--story-muted, #a4baad);
+}
+.story-technical > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 12px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.story-technical > summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.story-technical[open] > summary {
+  margin-bottom: 20px;
+}
+.story-technical p {
+  font-size: 13px;
+  line-height: 1.85;
+  margin-top: 12px;
+}
+.story-technical h3 {
+  margin-top: 20px;
+  font-size: 22px;
+}
+.story-technical pre,
+.story-technical code {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.9 Consolas,
+    monospace;
+  margin-top: 15px;
+}
+.lab-shell .product-canvas .story-primary,
+.story-architecture .story-primary {
+  min-height: 46px;
+  padding: 12px 17px;
+  border: 1px solid #b8c9ae;
+  background: #b8c9ae;
+  color: #263b35;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.lab-shell .product-canvas .story-primary:hover,
+.story-architecture .story-primary:hover {
+  background: #d0ddc8;
+}
+.story-decisions .product-canvas .story-primary {
+  background: #263b35;
+  border-color: #263b35;
+  color: #f0eee6;
+}
+.story-decisions .product-canvas .story-primary:hover {
+  background: #3b594e;
+}
+.story-conclusion {
+  margin-top: 24px;
+  padding-block: 20px 4px;
+  border-top: 1px solid #91a69755;
+}
+.story-conclusion p {
+  font-size: 15px;
+  line-height: 1.85;
+  max-width: 850px;
+}
+.story-conclusion small {
+  display: block;
+  color: var(--story-muted, #a4baad);
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 10px;
+}
+.story-conclusion button {
+  display: block;
+  margin-top: 18px;
+  padding: 10px 14px;
+  color: #d2dfce;
+  font-size: 13px;
+}
+.story-playground .playground-title {
+  grid-template-columns: 110px 1fr 130px;
+}
+.story-playground .playground-title h2 {
+  font-size: 48px;
+}
+.story-playground .playground-title p {
+  max-width: 600px;
+  font-size: 14px;
+}
+.story-playground .play-controls select {
+  min-width: 0;
+  width: min(360px, 100%);
+}
+.story-playground .document-scene {
+  padding: 30px;
+}
+.story-playground .document-scene h3 {
+  margin-top: 40px;
+}
+.story-playground .document-actions {
+  margin-top: 20px;
+}
+.story-playground .projection {
+  min-height: 58px;
+}
+.save-outcome {
+  background: #192a23;
+  padding: 28px;
+  color: #e2eae7;
+  min-width: 0;
+}
+.save-steps {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 22px;
+  border-bottom: 1px solid #91a69755;
+}
+.save-steps li {
+  flex: 1;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #a4baad;
+}
+.save-steps li > span {
+  display: block;
+  font:
+    20px Georgia,
+    serif;
+  margin-bottom: 7px;
+}
+.save-steps li[aria-current='step'] {
+  color: #f0eee6;
+}
+.save-explanation {
+  margin-block: 25px;
+}
+.save-explanation h3 {
+  font:
+    29px/1.15 Georgia,
+    serif;
+  letter-spacing: -0.7px;
+}
+.save-explanation p {
+  font-size: 14px;
+  line-height: 1.9;
+  margin-top: 16px;
+  color: #c6d5ca;
+}
+.save-explanation .story-next {
+  color: #f0eee6;
+}
+.saved-summary {
+  margin-top: 25px;
+  padding-top: 18px;
+  border-top: 1px solid #91a69755;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.saved-summary > span {
+  color: #b6c9bb;
+  font-size: 12px;
+}
+.saved-summary strong {
+  font-size: 19px;
+  font-weight: 400;
+}
+.save-outcome .reconciliation-actions {
+  margin-top: 15px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 0;
+}
+.save-outcome .reconciliation-actions button {
+  padding: 12px 15px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.technical-request-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.decision-trigger {
+  margin-top: 22px;
+}
+.story-decisions .model-node {
+  padding-top: 15px;
+}
+.story-decisions .model-node strong {
+  margin-top: 12px;
+}
+.story-decisions .model-verdict {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.architecture-story-intro {
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 700px;
+  margin-block: 25px 0;
+  color: #c6d5ca;
+}
+.story-architecture .architecture-node {
+  min-height: 150px;
+}
+.story-architecture .architecture-node strong {
+  font-size: 21px;
+}
+.story-architecture .layer-detail {
+  min-height: 210px;
+}
+.story-architecture .layer-detail-copy .architecture-benefit {
+  color: #f0eee6;
+  margin-top: 14px;
+}
+.architecture-next {
+  display: flex;
+  justify-content: end;
+  margin-top: 22px;
+}
+.story-agents .agent-title > div {
+  width: 65%;
+}
+.story-agents .agent-title h2 {
+  font-size: 51px;
+}
+.story-agents .agent-title p {
+  font-size: 14px;
+}
+.story-agents .agent-situation {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #e9e0f0;
+  max-width: 850px;
+  margin-block: 5px 25px;
+}
+.story-agents .agent-control-strip select {
+  min-width: 0;
+  max-width: 100%;
+}
+.story-deliverable div[role='status'] > p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #d4c1e0;
+}
+.story-deliverable .agent-reason {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #c3afd040;
+}
+.story-deliverable .story-technical {
+  font-size: 12px;
+}
+.story-deliverable .story-technical ol {
+  padding-left: 20px;
+  line-height: 1.9;
+}
+.story-deliverable .deliverable-meta {
+  line-height: 1.8;
+}
+.story-agents .human-actions > p {
+  font-size: 14px;
+}
+.story-agents .human-checks label,
+.story-agents .human-buttons button {
+  font-size: 13px;
+}
+@media (max-width: 760px) {
+  .story-playground .playground-title {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .story-playground .playground-title h2 {
+    font-size: 39px;
+  }
+  .story-playground .simulation-label {
+    text-align: left;
+  }
+  .story-playground .play-controls {
+    flex-wrap: wrap;
+  }
+  .story-playground .play-controls label {
+    width: 100%;
+  }
+  .story-playground .request-workbench,
+  .technical-request-layout {
+    grid-template-columns: 1fr;
+  }
+  .story-playground .document-scene,
+  .save-outcome {
+    padding: 23px 20px;
+  }
+  .story-playground .edit-row {
+    flex-wrap: wrap;
+  }
+  .story-playground .edit-row button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .story-playground .document-scene h3 {
+    margin-top: 25px;
+  }
+  .save-explanation h3 {
+    font-size: 27px;
+  }
+  .save-steps {
+    gap: 10px;
+  }
+  .story-agents .agent-title > div {
+    width: 100%;
+  }
+  .story-agents .agent-title h2 {
+    font-size: 38px;
+  }
+  .story-agents .agent-control-strip {
+    align-items: start;
+  }
+  .story-agents .agent-control-strip label {
+    max-width: 100%;
+  }
+  .story-agents .agent-control-strip select {
+    width: 100%;
+  }
+  .story-architecture .layer-detail {
+    min-height: 260px;
+  }
+  .story-architecture .architecture-node strong {
+    font-size: 17px;
+  }
+  .story-decisions .decision-experience h2 {
+    font-size: 45px;
+  }
+}
+
+.save-followup {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #263b35;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+}
+.save-explanation:focus-visible {
+  outline: 2px solid #b8c9ae;
+  outline-offset: 6px;
+}

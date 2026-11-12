@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#101310"/><path d="m24 20-13 12 13 12m16-24 13 12-13 12m-5-29-6 34" fill="none" stroke="#c6dcac" stroke-width="3"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>RT. — Rémi Tilmant</title>
+  <rect width="64" height="64" fill="#101815"/>
+  <g fill="#F0EEE6">
+    <path fill-rule="evenodd" d="M8 46 L8 18 L18 18 C25 18 29 22 29 28 C29 33 26 36 22 37 L31 46 L24 46 L16 38 L14 38 L14 46 Z M14 24 L14 32 L18 32 C21 32 23 31 23 28 C23 25 21 24 18 24 Z"/>
+    <path d="M30 18 L49 18 L49 24 L42 24 L42 46 L36 46 L36 24 L30 24 Z"/>
+    <path d="M52 40h6v6h-6z"/>
+  </g>
+</svg>

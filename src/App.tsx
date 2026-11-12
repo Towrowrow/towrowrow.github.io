@@ -3,6 +3,7 @@ import './styles/hero.css';
 import './styles/architecture.css';
 import './styles/sections.css';
 import './styles/labs.css';
+import './styles/lab-stories.css';
 
 import { MotionConfig } from 'motion/react';
 import type { ReactNode } from 'react';

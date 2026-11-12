@@ -1,34 +1,38 @@
 import { useReducer } from 'react';
 
 import type { Locale } from '../../data/profile';
+import { labStories } from '../../i18n/labStories';
 import { playgroundMessages } from '../../i18n/playground';
 import { initialRequest, requestReducer, requestScenarios } from '../../labs/requestMachine';
 import { isOptionValue } from '../../utils/options';
+import { requestLesson } from './lesson';
 import { requestView } from './presentation';
 import { RequestDocument } from './RequestDocument';
 import { RequestProtocol } from './RequestProtocol';
-import { RequestResolution } from './RequestResolution';
+import { SaveOutcome } from './SaveOutcome';
 
 export function RequestPlayground({ locale }: { locale: Locale }) {
-  const t = playgroundMessages[locale];
-  const [state, dispatch] = useReducer(requestReducer, undefined, () => initialRequest());
-  const view = requestView(state, t);
-
+  const copy = labStories[locale];
+  const t = copy.playground;
+  const technical = playgroundMessages[locale];
+  const [state, dispatch] = useReducer(requestReducer, undefined, () => initialRequest('conflict'));
+  const view = requestView(state, technical);
+  const lesson = requestLesson(state, locale);
   return (
-    <section id="playground" className="lab-shell scope-playground">
+    <section id="playground" className="lab-shell scope-playground story-playground">
       <div className="product-canvas">
         <div className="playground-experience">
           <div className="playground-title">
-            <span className="chapter-side">{t.playgroundLabel}</span>
+            <span className="chapter-side">{technical.playgroundLabel}</span>
             <div>
-              <h2>{t.playgroundTitle}</h2>
-              <p>{t.playgroundIntro}</p>
+              <h2>{t.title}</h2>
+              <p>{t.intro}</p>
             </div>
-            <span className="simulation-label">{t.localSimulation}</span>
+            <span className="simulation-label">{copy.simulation}</span>
           </div>
           <div className="play-controls">
             <label>
-              {t.scenarioLabel}
+              {t.scenario}
               <select
                 value={state.scenario}
                 onChange={(event) => {
@@ -39,34 +43,48 @@ export function RequestPlayground({ locale }: { locale: Locale }) {
               >
                 {requestScenarios.map((scenario) => (
                   <option key={scenario} value={scenario}>
-                    {t.requestScenarios[scenario]}
+                    {t.scenarios[scenario]}
                   </option>
                 ))}
               </select>
             </label>
             <button type="button" onClick={() => dispatch({ type: 'reset' })}>
-              {t.reset} ↺
+              {copy.restart} ↺
             </button>
           </div>
           <div className="request-workbench">
             <RequestDocument
-              messages={t}
+              locale={locale}
               state={state}
               view={view}
+              lesson={lesson}
               onEdit={() => dispatch({ type: 'edit' })}
               onSend={() => dispatch({ type: 'send' })}
             />
-            <RequestProtocol
-              messages={t}
+            <SaveOutcome
+              locale={locale}
+              state={state}
               view={view}
-              onDeliver={() => dispatch({ type: 'deliver' })}
+              lesson={lesson}
+              onAction={dispatch}
             />
           </div>
-          <RequestResolution messages={t} phase={state.phase} onAction={dispatch} />
-          <details className="protocol-detail">
-            <summary>{t.inspectContract}</summary>
-            <pre>{t.contract}</pre>
-            <p>{t.contractNote}</p>
+          <details className="story-technical" data-technical="playground">
+            <summary>{copy.technical}</summary>
+            <div className="technical-request-layout">
+              <div>
+                <pre>{technical.contract}</pre>
+                <p>{technical.contractNote}</p>
+                <p>
+                  {view.phaseText.title} {view.phaseText.description}
+                </p>
+              </div>
+              <RequestProtocol
+                messages={technical}
+                view={view}
+                onDeliver={() => dispatch({ type: 'deliver' })}
+              />
+            </div>
           </details>
         </div>
       </div>

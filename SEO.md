@@ -1,5 +1,24 @@
 # SEO et Google Search Console
 
+## Favicon personnel — V2.1 locale
+
+Le monogramme `RT.` remplace les chevrons de code, avec un fond `#101815` et des lettres `#F0EEE6`. Le nom complet reste inchangé dans la navigation, le Hero, les titres et les données structurées.
+
+Les deux pages pré-rendues déclarent les mêmes ressources à la racine :
+
+- `/favicon.ico` : entrées 16, 32 et 48 pixels.
+- `/favicon-96x96.png` : version raster carrée pour les surfaces de recherche.
+- `/favicon.svg` : tracés vectoriels autonomes, sans police distante.
+- `/apple-touch-icon.png` : 180 × 180 pixels.
+
+Des PNG 16/32/48 sont également disponibles. Aucun manifeste PWA n’est ajouté, car le portfolio n’a pas de fonctionnalité d’installation à déclarer. Les tests vérifient les dimensions réelles des images, le contenu de l’ICO et les déclarations dans le build FR/EN.
+
+Les [recommandations officielles Google](https://developers.google.com/search/docs/appearance/favicon-in-search) demandent une icône carrée, au moins 8 × 8, et recommandent une taille supérieure à 48 × 48. Le PNG 96 × 96 répond à cette recommandation. Les chemins restent stables et `robots.txt` autorise l’exploration.
+
+**Avant déploiement :** les nouvelles ressources sont vérifiées dans `dist/` et via le serveur local. La V2 publique continue normalement de servir son ancien favicon. Les titres, descriptions, canoniques, hreflang, Open Graph, données Person, sitemap et fichier Google de validation sont conservés.
+
+**Après un futur déploiement autorisé :** vérifier les réponses HTTP 200 et les types MIME sur les quatre URL ci-dessus, ainsi que leurs liens dans `/` et `/en/`. Dans Search Console, inspecter l’accueil et demander une nouvelle indexation si nécessaire. Google décide de la prochaine exploration et de l’affichage du favicon ; aucune mise à jour immédiate ni présence garantie ne peut être annoncée.
+
 ## Implémentation
 
 - URL française : https://towrowrow.github.io/

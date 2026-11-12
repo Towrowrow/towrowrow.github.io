@@ -7,6 +7,7 @@ interface AgentNetworkProps {
   messages: AgentsMessages;
   state: AgentState;
   onAction: (action: AgentAction) => void;
+  nextLabel?: string;
 }
 
 function rolePresentation(role: AgentRole, state: AgentState, t: AgentsMessages) {
@@ -15,7 +16,7 @@ function rolePresentation(role: AgentRole, state: AgentState, t: AgentsMessages)
   return { className: '', label: t.toExplore };
 }
 
-export function AgentNetwork({ messages: t, state, onAction }: AgentNetworkProps) {
+export function AgentNetwork({ messages: t, state, onAction, nextLabel }: AgentNetworkProps) {
   const supportRoles = [
     { role: 'debugger', hint: t.debuggerHint },
     { role: 'documentation', hint: t.documentationHint },
@@ -98,7 +99,7 @@ export function AgentNetwork({ messages: t, state, onAction }: AgentNetworkProps
           disabled={isHumanGate(state)}
           onClick={() => onAction({ type: 'next' })}
         >
-          {t.next} →
+          {nextLabel ?? t.next} →
         </button>
       </div>
     </div>

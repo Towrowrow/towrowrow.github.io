@@ -50,6 +50,32 @@ for (const [locale, file, url] of [
     assert.ok(content.includes('/images/remi-tilmant.webp'));
     assert.ok(content.includes('<blockquote>'));
     assert.ok(!content.includes('id="projects"'));
+    for (const lab of ['decisions', 'architecture', 'playground', 'agents']) {
+      assert.ok(
+        content.includes(`data-technical="${lab}"`),
+        `${lab} technical reading is prerendered`,
+      );
+    }
+    assert.ok(!content.includes('class="lab-guide-context"'));
+    const playground = content.match(/<section id="playground"[\s\S]*?<\/section>/)[0];
+    const primaryReading = playground.replace(/<details\b[\s\S]*?<\/details>/g, '');
+    assert.ok(!/If-Match|intentId|\b409\b|\b422\b|<pre\b|<code\b/.test(primaryReading));
+    assert.ok(playground.includes('If-Match'), 'advanced contracts remain available');
+    assert.ok(primaryReading.includes('save-explanation'));
+    for (const tag of content.matchAll(/<details class="story-technical"[^>]*>/g)) {
+      assert.ok(!/\bopen(?:\s|=|>)/.test(tag[0]), 'technical detail starts closed');
+    }
+    for (const file of [
+      'favicon.ico',
+      'favicon-96x96.png',
+      'favicon.svg',
+      'apple-touch-icon.png',
+    ]) {
+      assert.ok(html.includes(`href="/${file}"`), `${file} resolves from either language URL`);
+      await readFile(`dist/${file}`);
+    }
+    assert.ok(html.includes('sizes="96x96"'));
+    assert.ok(html.includes('rel="apple-touch-icon"'));
   });
 }
 test('sitemap declares both canonical language URLs and robots permits crawling', async () => {
@@ -59,4 +85,19 @@ test('sitemap declares both canonical language URLs and robots permits crawling'
   const robots = await readFile('dist/robots.txt', 'utf8');
   assert.ok(robots.includes('Allow: /'));
   assert.ok(robots.includes('Sitemap: https://towrowrow.github.io/sitemap.xml'));
+});
+
+test('Google verification and source assets survive the production build unchanged', async () => {
+  for (const file of [
+    'googleebb7b16e89457299.html',
+    'favicon.svg',
+    'favicon.ico',
+    'favicon-16x16.png',
+    'favicon-32x32.png',
+    'favicon-48x48.png',
+    'favicon-96x96.png',
+    'apple-touch-icon.png',
+  ]) {
+    assert.deepEqual(await readFile(`dist/${file}`), await readFile(`public/${file}`));
+  }
 });

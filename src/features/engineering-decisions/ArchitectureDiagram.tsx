@@ -12,9 +12,16 @@ interface ArchitectureDiagramProps {
   model: ArchitectureModel;
   mode: ArchitectureMode;
   event: ArchitectureEvent;
+  showProcessTags?: boolean;
 }
 
-export function ArchitectureDiagram({ messages: t, model, mode, event }: ArchitectureDiagramProps) {
+export function ArchitectureDiagram({
+  messages: t,
+  model,
+  mode,
+  event,
+  showProcessTags = true,
+}: ArchitectureDiagramProps) {
   return (
     <div className="system-model" data-kind={mode} data-event={event}>
       <div className="deployment-boundary">
@@ -26,9 +33,11 @@ export function ArchitectureDiagram({ messages: t, model, mode, event }: Archite
             return (
               <div className="node-and-edge" key={node}>
                 <div className={`model-node ${nodeClass(status)}`}>
-                  <span className="process-tag">
-                    {model.distributed ? 'SERVICE' : 'MODULE'} / 0{index + 1}
-                  </span>
+                  {showProcessTags && (
+                    <span className="process-tag">
+                      {model.distributed ? 'SERVICE' : 'MODULE'} / 0{index + 1}
+                    </span>
+                  )}
                   <strong>{t.nodes[node]}</strong>
                   <small>{t.nodeRoles[node]}</small>
                   <span className="node-state">{t.statuses[status]}</span>

@@ -58,7 +58,7 @@ export function DecisionControls({
           <input
             type="checkbox"
             disabled={mode !== 'services'}
-            checked={queue}
+            checked={queue && mode === 'services'}
             onChange={(event) => onQueueChange(event.target.checked)}
           />
           {t.queue}

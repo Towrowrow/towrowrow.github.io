@@ -84,7 +84,7 @@ const fr = {
   },
   assumptions: 'Ce que cette représentation suppose',
   assumptionsText:
-    'Le scénario considère un arrêt fatal du processus, pas une exception récupérable. Les services synchrones forment une chaîne d’appels ; une file permet de différer uniquement la notification. Cette illustration ne mesure ni disponibilité ni performance réelles. Aucun choix n’est universellement meilleur.',
+    'Le scénario considère un arrêt fatal du processus, pas une exception récupérable. Les services synchrones forment une chaîne d’appels ; une file permet de différer uniquement la notification. Chaque service est responsable de ses données : les autres passent par son API ou ses événements, sans lire ni modifier directement ses tables. Cela n’impose pas un serveur de base de données physique distinct par service. Cette illustration ne mesure ni disponibilité ni performance réelles. Aucun choix n’est universellement meilleur.',
 } as const;
 
 const en = {
@@ -169,7 +169,7 @@ const en = {
   },
   assumptions: 'Assumptions behind this model',
   assumptionsText:
-    'The scenario models a fatal process stop, not a recoverable exception. Synchronous services form a chain of calls; a queue only defers the notification. This illustration does not measure real availability or performance. Neither option is universally better.',
+    'The scenario models a fatal process stop, not a recoverable exception. Synchronous services form a chain of calls; a queue only defers the notification. Each service owns its data: other services use its API or events rather than reading or changing its tables directly. This does not require a separate physical database server for each service. This illustration does not measure real availability or performance. Neither option is universally better.',
 } as const satisfies TranslationShape<typeof fr>;
 
 export const decisionsMessages = { fr, en };

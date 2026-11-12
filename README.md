@@ -55,6 +55,14 @@ Les états du Playground forment une union discriminée : seules les requêtes e
 
 ## Contenu et traductions
 
+### Pédagogie des laboratoires — V2.1.1
+
+Chaque laboratoire possède son propre parcours : comparaison des conséquences pour Decisions, trajet d’un enregistrement pour Architecture Explorer, document partagé et résolution pour le Playground, proposition et validation humaine pour le Lab IA. Les textes pédagogiques FR/EN sont dans `src/i18n/labStories.ts`. Les fonctions pures `story.ts` ou `lesson.ts`, à côté des composants de chaque fonctionnalité, dérivent les explications contextuelles sans ajouter une seconde source d’état. Les simulations et leurs reducers restent inchangés.
+
+Les contrats, codes HTTP et livrables détaillés sont conservés dans des éléments HTML `details`, fermés par défaut et accessibles au clavier. Le pré-rendu contient les explications et ces approfondissements ; JavaScript est nécessaire pour faire évoluer les simulations. Voir [V211_REVIEW.md](V211_REVIEW.md) pour les parcours et les vérifications.
+
+L’identité `RT.` est réservée aux favicons ; le nom complet reste l’identité principale. Les SVG, ICO, PNG 16/32/48/96 et l’icône Apple 180 sont dans `public/`. Le SVG utilise des tracés autonomes, sans police distante. L’utilitaire d’auteur facultatif `scripts/generate_favicons.py` reproduit ces assets avec Python et Pillow ; il n’est pas exécuté par le build ou la CI. Les ressources générées sont déjà incluses, sans nouvelle dépendance npm. Voir [V21_REVIEW.md](V21_REVIEW.md) et [SEO.md](SEO.md).
+
 - `src/data/profile.ts` : identité, email, GitHub, liens optionnels et expérience. Les liens vides sont masqués. Sans `careerStart`, la référence est `initialExperience: 7` ; aucune date n’est inventée.
 - `src/i18n/site.ts` : navigation, Hero et sections éditoriales.
 - `src/i18n/decisions.ts`, `playground.ts`, `agents.ts` : textes des trois laboratoires.
